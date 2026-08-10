@@ -1,0 +1,6 @@
+# Project-local policy. Global rules still apply.
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Project external write requires approval.",
+)

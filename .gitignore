@@ -1,0 +1,14 @@
+# Игнорировать вообще всё
+/*
+
+# Кроме глобального AGENTS.md
+!/AGENTS.md
+
+# Кроме ai-dev-team-codex-kit
+!/ai-dev-team-codex-kit/
+
+# Разрешить всё внутри ai-dev-team-codex-kit
+!/ai-dev-team-codex-kit/**
+
+# Сам .gitignore тоже сохраняем
+!/.gitignore
