@@ -7,8 +7,8 @@
 ## Расположение каталогов
 
 - `~/codex-workspace` — этот репозиторий с общей AI-инфраструктурой.
-- `~/codex-workspace/projects/<preset>` — шаблон проектных инструкций; это не рабочая копия проекта.
-- `~/projects/<project>` — рабочий Git-репозиторий конкретного проекта.
+- `~/codex-workspace/presets/<preset>` — шаблон проектных инструкций; это не рабочая копия проекта.
+- `~/codex-workspace/projects/<project>` — рабочий Git-репозиторий конкретного проекта.
 
 Такая схема позволяет переносить домашний каталог между компьютерами без изменения документации и не смешивает шаблоны с рабочими проектами.
 
@@ -75,7 +75,7 @@ global/codex/config.windows.recommended.toml
 ### 2. Установить preset в репозиторий
 
 ```powershell
-.\install-project.ps1 -Preset trading-terminal -Target '~/projects/trading-terminal'
+.\install-project.ps1 -Preset trading-terminal -Target '~/codex-workspace/projects/trading-terminal'
 ```
 
 Другие значения `-Preset`:
@@ -92,7 +92,7 @@ receipt-price-db
 
 ## Проверка
 
-Из корня рабочего репозитория `~/projects/<project>`:
+Из корня рабочего репозитория `~/codex-workspace/projects/<project>`:
 
 ```powershell
 codex --ask-for-approval never "Кратко изложи активные инструкции и перечисли доступных пользовательских агентов."
@@ -107,6 +107,12 @@ codex mcp list
 /skills
 /mcp
 ```
+
+## Повторение настройки на другом компьютере
+
+Готовые последовательные промпты для Codex находятся в [`docs/WORKSPACE_MIGRATION_PROMPTS.md`](docs/WORKSPACE_MIGRATION_PROMPTS.md).
+
+Они охватывают безопасный перенос каталогов, установку глобального контекста, проверку отдельных Git-репозиториев, публикацию и аудит домашнего каталога без автоматического удаления данных.
 
 ## Как работать
 

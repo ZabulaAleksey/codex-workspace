@@ -34,10 +34,13 @@ Get-ChildItem (Join-Path $Kit "global\skills") -Directory | ForEach-Object {
 }
 
 $AgentsDest = Join-Path $CodexHome "AGENTS.md"
+$AgentsSource = Join-Path $Kit "global\codex\AGENTS.md"
 if (-not (Test-Path $AgentsDest) -or $Force) {
-    Copy-Safe (Join-Path $Kit "global\codex\AGENTS.md") $AgentsDest
+    Copy-Safe $AgentsSource $AgentsDest
+} elseif ((Get-FileHash $AgentsSource).Hash -eq (Get-FileHash $AgentsDest).Hash) {
+    Write-Host "Current: $AgentsDest" -ForegroundColor Green
 } else {
-    Copy-Item -Force (Join-Path $Kit "global\codex\AGENTS.md") (Join-Path $CodexHome "AGENTS.ai-dev-team.recommended.md")
+    Copy-Item -Force $AgentsSource (Join-Path $CodexHome "AGENTS.ai-dev-team.recommended.md")
     Write-Host "Existing AGENTS.md preserved. Merge AGENTS.ai-dev-team.recommended.md manually." -ForegroundColor Cyan
 }
 

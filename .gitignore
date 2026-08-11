@@ -1,15 +1,32 @@
-# Локальные секреты и переменные окружения
-.env
-.env.*
-!.env.example
+# По умолчанию игнорировать всё, что не относится к AI Dev Team.
+/*
 
-# Кэши и виртуальные окружения Python
-__pycache__/
-*.py[cod]
-.venv/
+# Канонические файлы и каталоги AI Dev Team.
+!/.gitignore
+!/AGENTS.md
+!/MANIFEST.txt
+!/QUICKSTART.md
+!/README.md
+!/install-global.ps1
+!/install-project.ps1
+!/backlog/
+!/docs/
+!/global/
+!/presets/
+!/rules/
+!/templates/
 
-# Локальные файлы редакторов и ОС
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db
+# Рабочие проекты являются отдельными вложенными Git-репозиториями.
+/projects/
+
+# Локальные секреты, кэши и служебные файлы внутри AI Dev-каталогов.
+**/.env
+**/.env.*
+!**/.env.example
+**/__pycache__/
+**/*.py[cod]
+**/.venv/
+**/.idea/
+**/.vscode/
+**/.DS_Store
+**/Thumbs.db
