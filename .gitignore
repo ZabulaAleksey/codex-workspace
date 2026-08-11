@@ -1,14 +1,15 @@
-# Игнорировать вообще всё
-/*
+# Локальные секреты и переменные окружения
+.env
+.env.*
+!.env.example
 
-# Кроме глобального AGENTS.md
-!/AGENTS.md
+# Кэши и виртуальные окружения Python
+__pycache__/
+*.py[cod]
+.venv/
 
-# Кроме ai-dev-team-codex-kit
-!/ai-dev-team-codex-kit/
-
-# Разрешить всё внутри ai-dev-team-codex-kit
-!/ai-dev-team-codex-kit/**
-
-# Сам .gitignore тоже сохраняем
-!/.gitignore
+# Локальные файлы редакторов и ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
