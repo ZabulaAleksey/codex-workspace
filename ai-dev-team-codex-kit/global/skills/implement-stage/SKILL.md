@@ -1,14 +1,14 @@
 ---
 name: implement-stage
-description: Implement one already-bounded roadmap stage end to end with specialist delegation, tests, review, and status update.
+description: Полностью реализовать один заранее ограниченный этап дорожной карты с делегированием специалистам, тестами, проверкой и обновлением статуса.
 ---
 
-1. Read `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md`, and `AGENTS.md`.
-2. If no bounded plan exists, invoke the planning workflow first.
-3. Assign disjoint file areas to the minimum number of write-capable agents.
-4. Keep database/API/interface contracts explicit before parallel implementation.
-5. Run the narrowest relevant tests, then integration tests needed by the stage.
-6. Run `reviewer`; add `security_reviewer` or `performance_engineer` only when the change warrants it.
-7. Fix high-confidence findings, at most two review loops.
-8. Update `docs/AI_STATUS.md` and architectural/decision docs when boundaries changed.
-9. Do not push/deploy/publish unless the user explicitly requested that external action.
+1. Прочитай `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md` и `AGENTS.md`.
+2. Если ограниченного плана нет, сначала запусти процесс планирования.
+3. Назначь непересекающиеся области файлов минимально необходимому числу агентов с правом записи.
+4. До параллельной реализации явно зафиксируй контракты базы данных, API и интерфейсов.
+5. Сначала запусти самые узкие релевантные тесты, затем необходимые для этапа интеграционные тесты.
+6. Запусти `reviewer`; добавляй `security_reviewer` или `performance_engineer` только тогда, когда изменение этого требует.
+7. Исправь замечания с высокой достоверностью; допускается не более двух циклов проверки.
+8. Обнови `docs/AI_STATUS.md`, а при изменении границ — документацию по архитектуре и решениям.
+9. Не выполняй push, развёртывание или публикацию, если пользователь явно не запросил это внешнее действие.

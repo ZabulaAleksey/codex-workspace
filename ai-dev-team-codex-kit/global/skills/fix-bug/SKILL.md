@@ -1,12 +1,12 @@
 ---
 name: fix-bug
-description: Reproduce, isolate, minimally fix, test, and review a concrete software bug.
+description: Воспроизвести, локализовать, минимально исправить, протестировать и проверить конкретную программную ошибку.
 ---
 
-1. Reproduce the bug or create a deterministic failing test.
-2. Use `explorer` for unfamiliar paths; do not spawn an architect for a local bug unless boundaries are involved.
-3. Identify the root cause before editing.
-4. Assign one write-agent to the affected area.
-5. Add a regression test that fails before the fix and passes after it when practical.
-6. Run `reviewer` for cross-module, data, auth, concurrency, or production-critical fixes.
-7. Report root cause, changed files, tests, and remaining risk.
+1. Воспроизведи ошибку или создай детерминированный падающий тест.
+2. Используй `explorer` для незнакомых путей; не запускай архитектора для локальной ошибки, если она не затрагивает границы компонентов.
+3. До редактирования определи первопричину.
+4. Назначь одного агента с правом записи на затронутую область.
+5. По возможности добавь регрессионный тест, который падает до исправления и проходит после него.
+6. Запусти `reviewer` для исправлений, затрагивающих несколько модулей, данные, авторизацию, конкурентность или критичные production-функции.
+7. Сообщи первопричину, изменённые файлы, выполненные тесты и оставшийся риск.

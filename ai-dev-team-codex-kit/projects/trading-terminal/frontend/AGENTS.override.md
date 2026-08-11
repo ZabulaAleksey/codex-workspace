@@ -1,5 +1,6 @@
-# Trading frontend override
-- Do not load full market history into the browser at once.
-- Use time-keyed/cursor history loading and preserve visible scroll position.
-- Long numeric work belongs in Web Worker/WASM; do not block the React main thread.
-- Benchmark rendering/data-transfer changes with realistic candle counts.
+# Дополнительные правила frontend торгового терминала
+
+- Не загружай всю историю рынка в браузер за один раз.
+- Используй загрузку истории по времени или курсору и сохраняй видимую позицию прокрутки.
+- Длительные численные вычисления выполняй в Web Worker/WASM; не блокируй основной поток React.
+- Проверяй изменения отрисовки и передачи данных на реалистичном количестве свечей.

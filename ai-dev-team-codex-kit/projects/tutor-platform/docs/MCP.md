@@ -1,5 +1,5 @@
-# MCP — Tutor Platform
+# MCP для Tutor Platform
 
-Context7 + GitHub + Playwright + Chrome DevTools. Cloudflare API MCP only if deployed there. Figma optional. Calendar integration should use the chosen provider API with narrow OAuth scopes; do not depend on an unverified third-party MCP.
+Context7, GitHub, Playwright и Chrome DevTools. MCP API Cloudflare нужен только при фактическом развёртывании там. Figma используется по желанию. Интеграция календаря должна использовать API выбранного поставщика с узкими областями OAuth; не полагайся на непроверенный сторонний MCP.
 
-See the kit-level `docs/MCP_CATALOG.md` for current configuration snippets. Keep optional remote/write-capable MCP disabled until needed.
+Актуальные примеры конфигурации находятся в `docs/MCP_CATALOG.md` на уровне комплекта. Необязательные удалённые MCP и MCP с правом записи должны оставаться отключёнными, пока не понадобятся.

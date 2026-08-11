@@ -1,15 +1,15 @@
-# Architecture — Receipt Price DB
+# Архитектура Receipt Price DB
 
 ```text
-Photos
- -> preprocessing
- -> OCR adapter
- -> receipt parser
- -> normalization
- -> Arrow Table
-      |-> Parquet archive
-      |-> DB / DuckDB analytics
-      `-> Excel export
+Фотографии
+ -> предварительная обработка
+ -> OCR-адаптер
+ -> разбор чека
+ -> нормализация
+ -> таблица Arrow
+      |-> архив Parquet
+      |-> аналитика в БД / DuckDB
+      `-> экспорт в Excel
 ```
 
-Arrow is the typed in-memory/interchange layer, not the OCR engine or the final UI database. Raw OCR/source-image provenance must remain available.
+Arrow является типизированным слоем в памяти и форматом обмена, а не OCR-движком или конечной базой данных интерфейса. Происхождение исходного OCR и изображения-источника должно оставаться доступным.

@@ -1,3 +1,3 @@
-# Low-level / OS Lab
+# Лаборатория низкоуровневого и системного программирования
 
-Potential team: systems_engineer, compiler_runtime_engineer, test_engineer. Keep experiments isolated from product repositories and favor tiny verifiable milestones.
+Возможная команда: `systems_engineer`, `compiler_runtime_engineer`, `test_engineer`. Изолируй эксперименты от продуктовых репозиториев и предпочитай небольшие проверяемые этапы.

@@ -1,33 +1,33 @@
-# WiFi Share — project instructions
+# WiFi Share — инструкции проекта
 
-## Product boundary
+## Границы продукта
 
-Local HTTP/WebSocket transfer service + browser/client UI; discovery/pairing; resumable/chunked files; checksums; strict local-network security.
+Локальная служба передачи через HTTP/WebSocket и браузерный или клиентский интерфейс; обнаружение и сопряжение устройств; возобновляемая и блочная передача файлов; контрольные суммы; строгая безопасность локальной сети.
 
-## AI team routing
+## Маршрутизация AI-команды
 
-Project specialists: network_protocol_engineer, wifi_security_engineer, windows_network_engineer.
+Специалисты проекта: `network_protocol_engineer`, `wifi_security_engineer`, `windows_network_engineer`.
 
-- Use global `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer` as needed.
-- Use built-in `explorer` for repository mapping.
-- Do not spawn every specialist for every task.
-- For roadmap work use `$implement-stage` or the local project skill.
-- Keep `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md`, and `docs/DECISIONS.md` current.
+- По необходимости используй глобальных `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer`.
+- Для исследования структуры репозитория используй встроенного `explorer`.
+- Не запускай всех специалистов для каждой задачи.
+- Для работы по дорожной карте используй `$implement-stage` или локальный skill проекта.
+- Поддерживай актуальность `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md` и `docs/DECISIONS.md`.
 
-## Change discipline
+## Дисциплина изменений
 
-- Preserve existing working behavior unless the requested stage changes it.
-- Define interfaces before parallel work across layers.
-- One write-agent per overlapping file area.
-- New technology requires a concrete problem statement and verification metric.
-- Avoid external writes/deploys unless explicitly requested.
+- Сохраняй существующее рабочее поведение, если запрошенный этап не требует его изменить.
+- До параллельной работы над разными слоями определи интерфейсы.
+- На каждую пересекающуюся область файлов назначай только одного агента с правом записи.
+- Новая технология требует описания конкретной проблемы и метрики проверки.
+- Не выполняй внешнюю запись или развёртывание без явного запроса.
 
-## Project MCP
+## MCP проекта
 
-Context7 + GitHub. Playwright only for web UI. Chrome DevTools only when diagnosing browser/network behavior. No database or filesystem MCP is required.
+Context7 и GitHub. Playwright нужен только для веб-интерфейса. Chrome DevTools используй только для диагностики поведения браузера и сети. MCP базы данных или файловой системы не требуется.
 
-## Code Review Rules
+## Правила проверки кода
 
-- Flag data loss, silent corruption, duplicate processing, broken reconnect/retry behavior and missing regression tests.
-- Flag technology additions that duplicate an existing component without a migration/removal plan.
-- Treat performance claims without benchmarks as unverified, not as established improvements.
+- Отмечай потерю данных, незаметное повреждение, повторную обработку, неисправное повторное подключение или повтор операций и отсутствие регрессионных тестов.
+- Отмечай добавление технологий, дублирующих существующий компонент без плана миграции или удаления.
+- Считай заявления о производительности без сравнительных тестов неподтверждёнными, а не доказанными улучшениями.

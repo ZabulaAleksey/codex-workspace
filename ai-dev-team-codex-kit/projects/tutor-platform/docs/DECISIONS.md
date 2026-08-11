@@ -1,15 +1,15 @@
-# Architecture Decision Log
+# Журнал архитектурных решений
 
-Append decisions. Do not rewrite historical entries silently.
+Добавляй новые решения. Не переписывай исторические записи без пояснения.
 
-## Template
+## Шаблон
 
-### YYYY-MM-DD — Decision title
+### ГГГГ-ММ-ДД — Название решения
 
-**Context:**
+**Контекст:**
 
-**Decision:**
+**Решение:**
 
-**Alternatives considered:**
+**Рассмотренные альтернативы:**
 
-**Consequences:**
+**Последствия:**

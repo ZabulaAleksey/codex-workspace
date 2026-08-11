@@ -1,15 +1,15 @@
-# Roadmap — Trading Terminal
+# Дорожная карта Trading Terminal
 
-1. Base Docker/Next.js/FastAPI/TimescaleDB + basic OTel.
-2. MT bridge and idempotent candles/ticks ingestion.
-3. Smooth infinite historical scrolling: TimescaleDB query design + frontend cache/IndexedDB.
-4. Reference Python backtester.
-5. RabbitMQ as market/event bus.
-6. Monte Carlo NumPy → benchmark → Numba.
-7. Temporal durable research workflows.
-8. Rust/WASM browser preview engine.
-9. Experiment storage + Arrow/Parquet artifacts.
-10. Genetic optimization / walk-forward validation.
-11. Profiling + OpenCL; optional WebGPU experiments.
-12. Strategy DSL + LLM generation + optional WASI plugin sandbox.
-13. Production hardening, full OpenTelemetry, load/recovery tests.
+1. Базовая среда Docker/Next.js/FastAPI/TimescaleDB и основа OTel.
+2. Мост с MT и идемпотентный приём свечей и тиков.
+3. Плавная бесконечная прокрутка истории: проектирование запросов TimescaleDB, кэш frontend и IndexedDB.
+4. Эталонный бэктестер на Python.
+5. RabbitMQ как шина рыночных данных и событий.
+6. Monte Carlo на NumPy, сравнительный тест и переход на Numba.
+7. Долговечные исследовательские процессы Temporal.
+8. Браузерный движок предварительного расчёта на Rust/WASM.
+9. Хранение экспериментов и артефакты Arrow/Parquet.
+10. Генетическая оптимизация и walk-forward-проверка.
+11. Профилирование и OpenCL; необязательные эксперименты с WebGPU.
+12. DSL стратегий, генерация с помощью LLM и необязательная изолированная среда плагинов WASI.
+13. Подготовка к production, полная OpenTelemetry, нагрузочные тесты и проверка восстановления.

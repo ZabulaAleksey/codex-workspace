@@ -1,3 +1,3 @@
-# Blockchain/Crypto Tooling
+# Инструменты для блокчейна и криптовалют
 
-Potential team: blockchain_protocol_engineer, indexer_data_engineer, smart_contract_reviewer, security_reviewer. Start read-only on public/testnet data; avoid custody/private-key handling in early stages.
+Возможная команда: `blockchain_protocol_engineer`, `indexer_data_engineer`, `smart_contract_reviewer`, `security_reviewer`. Начинать следует с режима только для чтения публичных данных или testnet; на ранних этапах нужно избегать хранения активов и работы с закрытыми ключами.

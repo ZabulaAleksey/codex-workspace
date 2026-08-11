@@ -1,5 +1,5 @@
-# MCP — WiFi Share
+# MCP для WiFi Share
 
-Context7 + GitHub. Playwright only for web UI. Chrome DevTools only when diagnosing browser/network behavior. No database or filesystem MCP is required.
+Context7 и GitHub. Playwright нужен только для веб-интерфейса. Chrome DevTools используй только для диагностики поведения браузера и сети. MCP базы данных или файловой системы не требуется.
 
-See the kit-level `docs/MCP_CATALOG.md` for current configuration snippets. Keep optional remote/write-capable MCP disabled until needed.
+Актуальные примеры конфигурации находятся в `docs/MCP_CATALOG.md` на уровне комплекта. Необязательные удалённые MCP и MCP с правом записи должны оставаться отключёнными, пока не понадобятся.

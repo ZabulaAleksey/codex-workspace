@@ -1,3 +1,3 @@
-# Dune 2 AI Bot
+# ИИ-бот для Dune 2
 
-Potential team: computer_vision_engineer, game_state_engineer, policy_agent_engineer, test_engineer. Build in a sandboxed/offline game environment and keep input-control adapters separate from decision logic.
+Возможная команда: `computer_vision_engineer`, `game_state_engineer`, `policy_agent_engineer`, `test_engineer`. Разрабатывай в изолированной локальной игровой среде и отделяй адаптеры управления вводом от логики принятия решений.

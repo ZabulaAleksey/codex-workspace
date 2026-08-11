@@ -1,13 +1,13 @@
-# Architecture — WiFi Share
+# Архитектура WiFi Share
 
 ```text
-Sender/receiver UI
+Интерфейс отправителя и получателя
       |
-local transfer API/WebSocket
+локальный API передачи / WebSocket
       |
-chunk store / filesystem adapter
+блочное хранилище / адаптер файловой системы
       |
-checksum + resume metadata
+контрольная сумма + метаданные возобновления
 ```
 
-Trust boundary: every peer, filename and payload is untrusted even on home Wi‑Fi.
+Граница доверия: ни одному узлу, имени файла или содержимому нельзя доверять даже в домашней сети Wi‑Fi.

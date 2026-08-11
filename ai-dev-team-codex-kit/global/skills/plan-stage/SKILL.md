@@ -1,11 +1,11 @@
 ---
 name: plan-stage
-description: Plan one roadmap stage or cross-module feature without implementing it.
+description: Спланировать один этап дорожной карты или межмодульную функцию без её реализации.
 ---
 
-1. Read project instructions and current status.
-2. Run `architect` and built-in `explorer` in parallel when both architecture and repository evidence are needed.
-3. Use a project specialist for domain-specific risks.
-4. Produce an ordered plan with file areas, interfaces, dependencies, tests, migrations, rollback notes, and acceptance criteria.
-5. Write/update `docs/AI_PLAN.md` only if the user asked to persist the plan.
-6. Do not implement code.
+1. Прочитай инструкции проекта и его текущий статус.
+2. Запусти `architect` и встроенного `explorer` параллельно, если одновременно нужны архитектурное решение и фактические данные из репозитория.
+3. Для рисков предметной области используй проектного специалиста.
+4. Подготовь упорядоченный план с областями файлов, интерфейсами, зависимостями, тестами, миграциями, способом отката и критериями приёмки.
+5. Записывай или обновляй `docs/AI_PLAN.md` только по просьбе пользователя сохранить план.
+6. Не реализуй код.

@@ -1,6 +1,6 @@
-# Backlog / previously discussed projects
+# Отложенные и ранее обсуждавшиеся проекты
 
-These are intentionally not installed as active presets yet. Promote one into `projects/` when you decide to resume it.
+Эти проекты намеренно пока не установлены как активные presets. Перенеси выбранный проект в `projects/`, когда решишь возобновить работу над ним.
 
 - `blockchain-tooling.md`
 - `deye-digital-twin.md`
@@ -9,4 +9,4 @@ These are intentionally not installed as active presets yet. Promote one into `p
 - `nonogram-solver.md`
 - `low-level-os-lab.md`
 
-The Fourier/rotating-vector work is already suggested as a module inside `field-lab`.
+Работа с преобразованием Фурье и вращающимися векторами уже предложена как модуль внутри `field-lab`.

@@ -1,5 +1,5 @@
-# MCP — Field Lab
+# MCP для Field Lab
 
-Context7 + GitHub. Browser MCP only if web UI. Optional future custom Mathcad MCP for exchange/automation, not required for core compute.
+Context7 и GitHub. Браузерный MCP нужен только при наличии веб-интерфейса. В будущем возможен пользовательский MCP для обмена данными с Mathcad и автоматизации, но для основных вычислений он не требуется.
 
-See the kit-level `docs/MCP_CATALOG.md` for current configuration snippets. Keep optional remote/write-capable MCP disabled until needed.
+Актуальные примеры конфигурации находятся в `docs/MCP_CATALOG.md` на уровне комплекта. Необязательные удалённые MCP и MCP с правом записи должны оставаться отключёнными, пока не понадобятся.

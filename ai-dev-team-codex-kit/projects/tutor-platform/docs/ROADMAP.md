@@ -1,12 +1,12 @@
-# Roadmap — Tutor Platform
+# Дорожная карта Tutor Platform
 
-1. Auth, student/lesson/content domain and base UI.
-2. Educational content library/search.
-3. Interactive board MVP.
-4. Existing WebRTC communication hardening.
-5. Yjs collaborative board/document state + offline/reconnect.
-6. Calendar/lesson scheduling with timezone-safe sync.
-7. PWA/mobile install, notifications and deep links.
-8. Calls/lesson reminders from smartphone UX.
-9. Integrate Field Lab educational widgets.
-10. Observability, security review, backup and deployment hardening.
+1. Авторизация, предметная область учеников, занятий и материалов, базовый интерфейс.
+2. Библиотека и поиск образовательных материалов.
+3. MVP интерактивной доски.
+4. Повышение надёжности существующей связи WebRTC.
+5. Совместное состояние доски и документов через Yjs, офлайн-режим и повторное подключение.
+6. Календарь и планирование занятий с безопасной синхронизацией часовых поясов.
+7. Установка PWA и мобильного приложения, уведомления и глубокие ссылки.
+8. Звонки и напоминания о занятиях в мобильном интерфейсе.
+9. Интеграция образовательных виджетов Field Lab.
+10. Наблюдаемость, проверка безопасности, резервное копирование и укрепление развёртывания.

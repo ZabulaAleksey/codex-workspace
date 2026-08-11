@@ -1,3 +1,3 @@
-# Nonogram Solver
+# Решатель японских кроссвордов
 
-Potential team: vision_ocr_engineer, constraint_solver_engineer, test_engineer. Separate image recognition from puzzle-solving logic.
+Возможная команда: `vision_ocr_engineer`, `constraint_solver_engineer`, `test_engineer`. Отделяй распознавание изображения от логики решения головоломки.

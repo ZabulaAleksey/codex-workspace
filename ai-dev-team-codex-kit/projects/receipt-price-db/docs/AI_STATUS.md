@@ -1,31 +1,31 @@
-# AI Project Status
+# Состояние проекта для ИИ
 
-## Current stage
+## Текущий этап
 
-_Not set._
+_Не задан._
 
-## Working now
-
--
-
-## In progress
+## Текущая работа
 
 -
 
-## Known blockers
+## В процессе
 
 -
 
-## Next recommended task
+## Известные блокеры
 
 -
 
-## Last verified commands
+## Следующая рекомендуемая задача
+
+-
+
+## Последние проверенные команды
 
 ```text
 
 ```
 
-## Notes for next Codex session
+## Заметки для следующей сессии Codex
 
 -

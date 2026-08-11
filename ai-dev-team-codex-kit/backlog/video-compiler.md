@@ -1,3 +1,3 @@
-# Video Compiler
+# Компоновщик видео
 
-Potential team: ffmpeg_media_engineer, metadata_pipeline_engineer, ui_engineer. Preserve timestamps/metadata, build deterministic ffmpeg command generation, and keep media assets out of Git.
+Возможная команда: `ffmpeg_media_engineer`, `metadata_pipeline_engineer`, `ui_engineer`. Сохраняй временные метки и метаданные, обеспечь детерминированное формирование команд ffmpeg и не храни медиафайлы в Git.

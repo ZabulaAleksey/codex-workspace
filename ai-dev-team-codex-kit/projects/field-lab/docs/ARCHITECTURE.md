@@ -1,7 +1,8 @@
-# Architecture — Field Lab
+# Архитектура Field Lab
 
-Separate:
-- **physics/math core** — deterministic functions with units and tests;
-- **numerical engine** — solver/discretization/acceleration;
-- **visualization** — sampling and rendering only;
-- **educational adapter** — explanations/exercises for later Tutor Platform integration.
+Разделяй:
+
+- **физико-математическое ядро** — детерминированные функции с единицами измерения и тестами;
+- **численный движок** — решатели, дискретизация и ускорение;
+- **визуализацию** — только выборку данных и отрисовку;
+- **образовательный адаптер** — объяснения и упражнения для будущей интеграции с Tutor Platform.

@@ -1,33 +1,33 @@
-# Music Sequencer — project instructions
+# Music Sequencer — инструкции проекта
 
-## Product boundary
+## Границы продукта
 
-React/TypeScript UI; Web Audio API; AudioWorklet; Rust/WASM DSP; optional Tauri desktop shell; Yjs for collaborative project state if collaboration is added.
+Интерфейс на React/TypeScript; Web Audio API; AudioWorklet; DSP на Rust/WASM; необязательная оболочка настольного приложения на Tauri; Yjs для совместного состояния проекта, если будет добавлена совместная работа.
 
-## AI team routing
+## Маршрутизация AI-команды
 
-Project specialists: audio_dsp_engineer, realtime_audio_engineer, wasm_audio_engineer, sequencer_model_engineer.
+Специалисты проекта: `audio_dsp_engineer`, `realtime_audio_engineer`, `wasm_audio_engineer`, `sequencer_model_engineer`.
 
-- Use global `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer` as needed.
-- Use built-in `explorer` for repository mapping.
-- Do not spawn every specialist for every task.
-- For roadmap work use `$implement-stage` or the local project skill.
-- Keep `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md`, and `docs/DECISIONS.md` current.
+- По необходимости используй глобальных `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer`.
+- Для исследования структуры репозитория используй встроенного `explorer`.
+- Не запускай всех специалистов для каждой задачи.
+- Для работы по дорожной карте используй `$implement-stage` или локальный skill проекта.
+- Поддерживай актуальность `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md` и `docs/DECISIONS.md`.
 
-## Change discipline
+## Дисциплина изменений
 
-- Preserve existing working behavior unless the requested stage changes it.
-- Define interfaces before parallel work across layers.
-- One write-agent per overlapping file area.
-- New technology requires a concrete problem statement and verification metric.
-- Avoid external writes/deploys unless explicitly requested.
+- Сохраняй существующее рабочее поведение, если запрошенный этап не требует его изменить.
+- До параллельной работы над разными слоями определи интерфейсы.
+- На каждую пересекающуюся область файлов назначай только одного агента с правом записи.
+- Новая технология требует описания конкретной проблемы и метрики проверки.
+- Не выполняй внешнюю запись или развёртывание без явного запроса.
 
-## Project MCP
+## MCP проекта
 
-Context7 + GitHub; Chrome DevTools for Web Audio/performance debugging; Playwright for UI/e2e. Figma optional.
+Context7 и GitHub; Chrome DevTools для диагностики Web Audio и производительности; Playwright для UI и E2E. Figma используется по желанию.
 
-## Code Review Rules
+## Правила проверки кода
 
-- Flag data loss, silent corruption, duplicate processing, broken reconnect/retry behavior and missing regression tests.
-- Flag technology additions that duplicate an existing component without a migration/removal plan.
-- Treat performance claims without benchmarks as unverified, not as established improvements.
+- Отмечай потерю данных, незаметное повреждение, повторную обработку, неисправное повторное подключение или повтор операций и отсутствие регрессионных тестов.
+- Отмечай добавление технологий, дублирующих существующий компонент без плана миграции или удаления.
+- Считай заявления о производительности без сравнительных тестов неподтверждёнными, а не доказанными улучшениями.

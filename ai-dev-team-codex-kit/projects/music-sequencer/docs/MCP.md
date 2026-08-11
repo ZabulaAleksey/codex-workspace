@@ -1,5 +1,5 @@
-# MCP — Music Sequencer
+# MCP для Music Sequencer
 
-Context7 + GitHub; Chrome DevTools for Web Audio/performance debugging; Playwright for UI/e2e. Figma optional.
+Context7 и GitHub; Chrome DevTools для диагностики Web Audio и производительности; Playwright для UI и E2E. Figma используется по желанию.
 
-See the kit-level `docs/MCP_CATALOG.md` for current configuration snippets. Keep optional remote/write-capable MCP disabled until needed.
+Актуальные примеры конфигурации находятся в `docs/MCP_CATALOG.md` на уровне комплекта. Необязательные удалённые MCP и MCP с правом записи должны оставаться отключёнными, пока не понадобятся.

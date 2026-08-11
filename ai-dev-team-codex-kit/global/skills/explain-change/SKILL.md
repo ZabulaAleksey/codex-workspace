@@ -1,6 +1,6 @@
 ---
 name: explain-change
-description: Explain an already-completed repository change for learning, including files, data flow, commands and verification.
+description: Объяснить уже выполненное изменение репозитория в учебных целях, включая файлы, поток данных, команды и проверки.
 ---
 
-Invoke `beginner_mentor` with the relevant diff/status. Ask it to explain mechanics rather than merely summarize. Do not change files.
+Запусти `beginner_mentor`, передав ему относящиеся к задаче diff и статус. Попроси объяснить механизм работы, а не просто пересказать изменения. Не изменяй файлы.

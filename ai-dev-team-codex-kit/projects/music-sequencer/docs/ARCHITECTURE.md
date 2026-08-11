@@ -1,13 +1,14 @@
-# Architecture — Music Sequencer
+# Архитектура Music Sequencer
 
 ```text
-React UI / timeline
+Интерфейс React / временная шкала
       |
-project state + scheduler
+состояние проекта + планировщик
       |
-Web Audio graph -> AudioWorklet -> Rust/WASM DSP
+граф Web Audio -> AudioWorklet -> DSP на Rust/WASM
       |
-optional Yjs collaboration (state only; large audio assets stored separately)
+необязательная совместная работа через Yjs
+(только состояние; крупные аудиоматериалы хранятся отдельно)
 ```
 
-Real-time audio thread must not depend on network, database or blocking filesystem calls.
+Звуковой поток реального времени не должен зависеть от сети, базы данных или блокирующих обращений к файловой системе.

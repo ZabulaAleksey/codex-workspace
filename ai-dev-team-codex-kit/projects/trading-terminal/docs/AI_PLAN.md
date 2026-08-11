@@ -1,33 +1,35 @@
-# AI Plan
+# План работы ИИ
 
-## Current objective
+## Текущая цель
 
-_Not set._
+_Не задана._
 
-## Scope
+## Область работы
 
-### In
+### Входит
+
 -
 
-### Out
+### Не входит
+
 -
 
-## Work items
+## Рабочие задачи
 
-| # | Task | Owner/agent | Depends on | Done |
+| № | Задача | Ответственный/агент | Зависит от | Выполнено |
 |---|---|---|---|---|
 | 1 | | | | |
 
-## Acceptance criteria
+## Критерии приёмки
 
 - [ ]
 
-## Verification
+## Проверка
 
 ```text
-commands go here
+здесь указываются команды
 ```
 
-## Risks / rollback
+## Риски и откат
 
 -

@@ -1,33 +1,33 @@
-# Receipt Price DB — project instructions
+# Receipt Price DB — инструкции проекта
 
-## Product boundary
+## Границы продукта
 
-Image preprocessing + OCR adapter + receipt parser + product normalization + Apache Arrow tables + Parquet archive + PostgreSQL/DuckDB analytics + Excel export.
+Предварительная обработка изображений, OCR-адаптер, разбор чеков, нормализация товаров, таблицы Apache Arrow, архив Parquet, аналитика в PostgreSQL/DuckDB и экспорт в Excel.
 
-## AI team routing
+## Маршрутизация AI-команды
 
-Project specialists: vision_ocr_engineer, arrow_data_engineer, product_normalization_engineer, receipt_data_quality_engineer.
+Специалисты проекта: `vision_ocr_engineer`, `arrow_data_engineer`, `product_normalization_engineer`, `receipt_data_quality_engineer`.
 
-- Use global `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer` as needed.
-- Use built-in `explorer` for repository mapping.
-- Do not spawn every specialist for every task.
-- For roadmap work use `$implement-stage` or the local project skill.
-- Keep `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md`, and `docs/DECISIONS.md` current.
+- По необходимости используй глобальных `architect`, `planner`, `reviewer`, `test_engineer`, `security_reviewer`, `performance_engineer`.
+- Для исследования структуры репозитория используй встроенного `explorer`.
+- Не запускай всех специалистов для каждой задачи.
+- Для работы по дорожной карте используй `$implement-stage` или локальный skill проекта.
+- Поддерживай актуальность `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md` и `docs/DECISIONS.md`.
 
-## Change discipline
+## Дисциплина изменений
 
-- Preserve existing working behavior unless the requested stage changes it.
-- Define interfaces before parallel work across layers.
-- One write-agent per overlapping file area.
-- New technology requires a concrete problem statement and verification metric.
-- Avoid external writes/deploys unless explicitly requested.
+- Сохраняй существующее рабочее поведение, если запрошенный этап не требует его изменить.
+- До параллельной работы над разными слоями определи интерфейсы.
+- На каждую пересекающуюся область файлов назначай только одного агента с правом записи.
+- Новая технология требует описания конкретной проблемы и метрики проверки.
+- Не выполняй внешнюю запись или развёртывание без явного запроса.
 
-## Project MCP
+## MCP проекта
 
-Context7 + GitHub. Playwright only if a web UI is added. OCR provider-specific MCP is unnecessary; keep OCR behind an adapter. Arrow/Parquet docs come via Context7.
+Context7 и GitHub. Playwright нужен только после добавления веб-интерфейса. Отдельный MCP конкретного поставщика OCR не требуется: OCR должен оставаться за адаптером. Документация Arrow/Parquet доступна через Context7.
 
-## Code Review Rules
+## Правила проверки кода
 
-- Flag data loss, silent corruption, duplicate processing, broken reconnect/retry behavior and missing regression tests.
-- Flag technology additions that duplicate an existing component without a migration/removal plan.
-- Treat performance claims without benchmarks as unverified, not as established improvements.
+- Отмечай потерю данных, незаметное повреждение, повторную обработку, неисправное повторное подключение или повтор операций и отсутствие регрессионных тестов.
+- Отмечай добавление технологий, дублирующих существующий компонент без плана миграции или удаления.
+- Считай заявления о производительности без сравнительных тестов неподтверждёнными, а не доказанными улучшениями.

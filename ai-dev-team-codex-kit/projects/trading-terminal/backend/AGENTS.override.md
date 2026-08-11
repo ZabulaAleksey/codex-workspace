@@ -1,6 +1,7 @@
-# Trading backend override
-- Python/FastAPI code must keep compute kernels independent from HTTP handlers.
-- Temporal Workflows orchestrate; Activities perform I/O, randomness and long compute.
-- RabbitMQ is for events/fan-out, not a second durable workflow state machine.
-- Database writes triggered by retries must be idempotent.
-- Trace context must propagate across service boundaries where supported.
+# Дополнительные правила backend торгового терминала
+
+- Код Python/FastAPI должен сохранять независимость вычислительных ядер от HTTP-обработчиков.
+- Процессы Temporal оркестрируют работу; Activities выполняют ввод-вывод, случайные операции и длительные вычисления.
+- RabbitMQ предназначен для событий и рассылки, а не для создания второго долговечного автомата состояния процессов.
+- Записи в базу данных, вызванные повторными попытками, должны быть идемпотентными.
+- Контекст трассировки должен передаваться через границы сервисов там, где это поддерживается.

@@ -1,12 +1,12 @@
-# Roadmap — Field Lab
+# Дорожная карта Field Lab
 
-1. Domain model: grids, units, scalar/vector fields.
-2. Analytical reference examples and tests.
-3. Numerical solvers + convergence validation.
-4. Interactive 2D visualization.
-5. 3D/streamline/vector visualization where useful.
-6. Harmonic/Fourier contour module.
-7. Web Worker/WASM for browser compute when measured useful.
-8. Optional WebGPU for large grids.
-9. Export/import with tutor-platform educational modules.
-10. Optional Mathcad/MATLAB bridges.
+1. Модель предметной области: сетки, единицы измерения, скалярные и векторные поля.
+2. Аналитические эталонные примеры и тесты.
+3. Численные решатели и проверка сходимости.
+4. Интерактивная двумерная визуализация.
+5. Трёхмерная визуализация, линии тока и векторы там, где это полезно.
+6. Модуль гармоник и контуров Фурье.
+7. Web Worker/WASM для браузерных вычислений, когда измерения подтвердят пользу.
+8. Необязательный WebGPU для больших сеток.
+9. Экспорт и импорт образовательных модулей Tutor Platform.
+10. Необязательные мосты с Mathcad/MATLAB.

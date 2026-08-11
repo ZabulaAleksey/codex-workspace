@@ -1,10 +1,10 @@
-# MCP-каталог
+# Каталог MCP
 
-## Базовые
+## Базовые MCP
 
-### OpenAI Developer Docs
+### Документация разработчика OpenAI
 
-Назначение: актуальная документация OpenAI/Codex/API.
+Назначение: актуальная документация OpenAI, Codex и API.
 
 ```toml
 [mcp_servers.openaiDeveloperDocs]
@@ -25,7 +25,7 @@ args = ["/c", "npx", "-y", "@upstash/context7-mcp"]
 
 ### GitHub
 
-Назначение: Issues, PR, Actions и repository metadata сверх обычного `git`/`gh`.
+Назначение: задачи, PR, Actions и метаданные репозитория сверх возможностей обычных `git` и `gh`.
 
 ```toml
 [mcp_servers.github]
@@ -35,13 +35,13 @@ default_tools_approval_mode = "prompt"
 enabled = false
 ```
 
-Включать после задания `GITHUB_PERSONAL_ACCESS_TOKEN`. Не давать write-инструменты агентам, которым они не нужны.
+Включать после задания `GITHUB_PERSONAL_ACCESS_TOKEN`. Не предоставлять инструменты с правом записи агентам, которым они не нужны.
 
-## Browser MCP
+## Браузерные MCP
 
 ### Playwright
 
-Для повторяемых end-to-end сценариев, UI QA и браузерной автоматизации.
+Для повторяемых сквозных сценариев, проверки качества интерфейса и браузерной автоматизации.
 
 ```toml
 [mcp_servers.playwright]
@@ -49,9 +49,9 @@ command = "cmd"
 args = ["/c", "npx", "-y", "@playwright/mcp@latest"]
 ```
 
-### Chrome DevTools MCP
+### MCP Chrome DevTools
 
-Для network/performance/debugging и инспекции браузера.
+Для диагностики сети и производительности, отладки и исследования браузера.
 
 ```toml
 [mcp_servers.chrome-devtools]
@@ -61,9 +61,9 @@ env = { SystemRoot="C:\\Windows", PROGRAMFILES="C:\\Program Files" }
 startup_timeout_ms = 20000
 ```
 
-## Deployment / production — подключать только по необходимости
+## Развёртывание и production — подключать только по необходимости
 
-### Cloudflare API MCP
+### MCP API Cloudflare
 
 ```toml
 [mcp_servers.cloudflare_api]
@@ -71,16 +71,16 @@ url = "https://mcp.cloudflare.com/mcp"
 enabled = false
 ```
 
-Включать для проектов, реально развёрнутых на Cloudflare. OAuth/permissions должны быть минимальными.
+Включать для проектов, действительно развёрнутых в Cloudflare. Области OAuth и разрешения должны быть минимальными.
 
 ### Sentry
 
-Подключать только когда проект использует Sentry и нужно разбирать реальные production issues. Не нужен на раннем MVP.
+Подключать только тогда, когда проект использует Sentry и нужно разбирать реальные проблемы production. На раннем этапе MVP не требуется.
 
-## Что НЕ нужно превращать в MCP без причины
+## Что не нужно превращать в MCP без причины
 
 - файловую систему — у Codex уже есть файловые инструменты;
-- Docker — shell/CLI обычно проще и прозрачнее;
-- PostgreSQL/TimescaleDB с write-доступом — безопаснее миграции/SQL через проектный код и CLI;
-- Arrow — это библиотека/формат, документацию берём через Context7;
-- Temporal/OpenTelemetry — SDK/CLI/docs, отдельный MCP не обязателен.
+- Docker — shell и CLI обычно проще и прозрачнее;
+- PostgreSQL/TimescaleDB с правом записи — безопаснее выполнять миграции и SQL через проектный код и CLI;
+- Arrow — это библиотека и формат, документацию следует получать через Context7;
+- Temporal/OpenTelemetry — доступны SDK, CLI и документация, отдельный MCP необязателен.

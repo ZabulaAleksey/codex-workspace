@@ -1,12 +1,12 @@
-# Architecture — Tutor Platform
+# Архитектура Tutor Platform
 
 ```text
-Next.js UI
-  |---- content/API -> backend -> PostgreSQL
-  |---- board state -> Yjs document/provider/persistence
-  |---- calls ------> WebRTC + signaling (+ TURN where required)
-  |---- calendar ---> provider adapter/OAuth
-  `---- mobile -----> PWA/service worker/notifications/deep links
+Интерфейс Next.js
+  |---- контент/API -> backend -> PostgreSQL
+  |---- состояние доски -> документ, provider и хранилище Yjs
+  |---- звонки ----------> WebRTC + сигнализация (+ TURN при необходимости)
+  |---- календарь -------> адаптер поставщика/OAuth
+  `---- мобильный режим -> PWA, service worker, уведомления и глубокие ссылки
 ```
 
-WebRTC and Yjs are complementary: WebRTC can be a transport; Yjs is the conflict-free shared-state layer.
+WebRTC и Yjs дополняют друг друга: WebRTC может быть транспортом, а Yjs является бесконфликтным слоем общего состояния.

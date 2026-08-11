@@ -1,11 +1,11 @@
 ---
 name: review-change
-description: Review a diff or branch for correctness and risk without changing code.
+description: Проверить diff или ветку на правильность и риски без изменения кода.
 ---
 
-1. Inspect the actual diff and affected execution paths.
-2. Run `reviewer`.
-3. Add `security_reviewer` if auth/secrets/network/input trust changed.
-4. Add `performance_engineer` if the change claims or risks meaningful performance impact.
-5. Consolidate duplicate findings and order by severity.
-6. Do not edit files.
+1. Исследуй фактический diff и затронутые пути выполнения.
+2. Запусти `reviewer`.
+3. Добавь `security_reviewer`, если изменились авторизация, секреты, сеть или доверие к входным данным.
+4. Добавь `performance_engineer`, если изменение заявляет или создаёт существенное влияние на производительность.
+5. Объедини повторяющиеся замечания и расположи их по уровню серьёзности.
+6. Не изменяй файлы.

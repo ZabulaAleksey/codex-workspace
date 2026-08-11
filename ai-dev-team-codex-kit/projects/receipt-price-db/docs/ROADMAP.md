@@ -1,12 +1,12 @@
-# Roadmap — Receipt Price DB
+# Дорожная карта Receipt Price DB
 
-1. Define domain schema and fixtures from representative receipts.
-2. Image preprocessing + replaceable OCR adapter.
-3. Parse receipt metadata/items while preserving raw OCR.
-4. Apache Arrow typed tables; Decimal money fields.
-5. Parquet archive + analytics layer.
-6. Product normalization with confidence/manual correction.
-7. Price-history database and query API.
-8. Excel export: product rows, date columns, raw-data sheet.
-9. Batch folder processing, dedupe and error queue.
-10. Optional web UI/search/charts and model-assisted normalization.
+1. Определить модель предметной области и тестовые данные из репрезентативных чеков.
+2. Предварительная обработка изображений и заменяемый OCR-адаптер.
+3. Разбор метаданных и позиций чека с сохранением исходного OCR.
+4. Типизированные таблицы Apache Arrow и денежные поля Decimal.
+5. Архив Parquet и аналитический слой.
+6. Нормализация товаров с оценкой уверенности и ручной корректировкой.
+7. База истории цен и API запросов.
+8. Экспорт в Excel: строки товаров, столбцы дат и лист исходных данных.
+9. Пакетная обработка каталогов, устранение дублей и очередь ошибок.
+10. Необязательный веб-интерфейс, поиск, графики и нормализация с помощью модели.

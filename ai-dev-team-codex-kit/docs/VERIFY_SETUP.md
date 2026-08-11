@@ -1,13 +1,13 @@
-# Verification checklist
+# Контрольный список проверки установки
 
-## Global
+## Глобальная конфигурация
 
 ```powershell
 codex mcp list
-codex --ask-for-approval never "Summarize the current global and project instructions."
+codex --ask-for-approval never "Кратко изложи текущие глобальные и проектные инструкции."
 ```
 
-In TUI:
+В TUI:
 
 ```text
 /agent
@@ -16,27 +16,27 @@ In TUI:
 /mcp
 ```
 
-## Rules
+## Правила
 
-Example check:
+Пример проверки:
 
 ```powershell
 codex execpolicy check --pretty --rules "$HOME\.codex\rules\ai-dev-team.rules" -- git push --force origin main
 ```
 
-Expected: forbidden.
+Ожидаемый результат: действие запрещено.
 
-## Hook dry-run
+## Пробный запуск hook
 
 ```powershell
 '{"cwd":"C:\\path\\to\\repo","hook_event_name":"SessionStart","source":"startup"}' | py -3 "$HOME\.codex\hooks\session_context.py"
 ```
 
-For a repository with `docs/AI_STATUS.md`, expect JSON containing `additionalContext`.
+Для репозитория с `docs/AI_STATUS.md` ожидается JSON, содержащий `additionalContext`.
 
-## Project
+## Проект
 
 ```powershell
 git status --short
-codex --ask-for-approval never "List project custom agents and tell me which one would handle the next roadmap stage. Do not edit files."
+codex --ask-for-approval never "Перечисли пользовательских агентов проекта и укажи, кто из них должен обрабатывать следующий этап дорожной карты. Не изменяй файлы."
 ```

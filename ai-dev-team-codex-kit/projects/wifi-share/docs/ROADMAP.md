@@ -1,10 +1,10 @@
-# Roadmap — WiFi Share
+# Дорожная карта WiFi Share
 
-1. Reliable local HTTP upload/download on explicit interface.
-2. Pairing/session token and safe file destinations.
-3. Chunked/resumable transfers + checksum verification.
-4. Device discovery and friendly connection UX.
-5. Multiple files/folders and progress/retry.
-6. Browser/mobile UI and QR connection.
-7. Performance/backpressure benchmarks.
-8. Packaging/autostart and platform hardening.
+1. Надёжная локальная загрузка и скачивание по HTTP с явным выбором сетевого интерфейса.
+2. Токен сопряжения или сессии и безопасные места назначения файлов.
+3. Блочная и возобновляемая передача с проверкой контрольной суммы.
+4. Обнаружение устройств и понятный интерфейс подключения.
+5. Несколько файлов и каталогов, отображение прогресса и повторные попытки.
+6. Браузерный и мобильный интерфейс, подключение по QR-коду.
+7. Сравнительные тесты производительности и обратного давления.
+8. Упаковка, автозапуск и укрепление безопасности платформы.

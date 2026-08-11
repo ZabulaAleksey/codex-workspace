@@ -1,12 +1,12 @@
-# Roadmap — Music Sequencer
+# Дорожная карта Music Sequencer
 
-1. Timeline/tracks/clips project model.
-2. Basic Web Audio playback and transport.
-3. AudioWorklet scheduling and latency tests.
-4. MIDI/piano-roll editing.
-5. DSP effects and FFT visualization.
-6. Rust/WASM DSP modules with reference tests.
-7. Project persistence/import/export.
-8. Optional Yjs collaboration for metadata/state.
-9. Optional Tauri desktop packaging.
-10. Plugins, automation and performance hardening.
+1. Модель проекта с временной шкалой, дорожками и клипами.
+2. Базовое воспроизведение и управление транспортом через Web Audio.
+3. Планирование через AudioWorklet и тесты задержки.
+4. Редактирование MIDI и piano roll.
+5. DSP-эффекты и визуализация FFT.
+6. Модули DSP на Rust/WASM с эталонными тестами.
+7. Сохранение, импорт и экспорт проекта.
+8. Необязательная совместная работа через Yjs для метаданных и состояния.
+9. Необязательная упаковка настольного приложения через Tauri.
+10. Плагины, автоматизация и повышение стабильности производительности.

@@ -1,5 +1,6 @@
-# Receipt data override
-- Money uses Decimal/fixed precision, never binary float as the authoritative stored amount.
-- Preserve raw OCR + source image identity for auditability.
-- Product normalization cannot silently collapse uncertain matches.
-- Arrow/Parquet schema changes need compatibility/version notes.
+# Дополнительные правила для данных чеков
+
+- Денежные значения используют Decimal или фиксированную точность; двоичный float никогда не является авторитетным сохранённым значением.
+- Сохраняй исходный результат OCR и идентичность изображения-источника для возможности аудита.
+- Нормализация товаров не должна незаметно объединять совпадения с низкой уверенностью.
+- Изменения схемы Arrow/Parquet требуют примечаний о совместимости и версиях.

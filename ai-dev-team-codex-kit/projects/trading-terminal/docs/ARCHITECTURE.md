@@ -1,19 +1,20 @@
-# Architecture — Trading Terminal
+# Архитектура Trading Terminal
 
 ```text
-MT terminal/MQL -> ingestion API -> TimescaleDB
-                         |
-                         +-> RabbitMQ -> event consumers
+Терминал MT/MQL -> API приёма данных -> TimescaleDB
+                                      |
+                                      +-> RabbitMQ -> потребители событий
 
-Next.js <-> FastAPI -> Temporal -> backtest/Monte Carlo/optimization activities
+Next.js <-> FastAPI -> Temporal -> операции бэктеста, Monte Carlo и оптимизации
    |                          |
-   +-> Web Worker -> Rust/WASM preview
+   +-> Web Worker -> предварительный расчёт на Rust/WASM
 
-All services -> OTLP -> OpenTelemetry Collector -> observability backend
+Все сервисы -> OTLP -> коллектор OpenTelemetry -> система наблюдаемости
 ```
 
-Principles:
-- TimescaleDB is for time-series market data; regular PostgreSQL for metadata/entities.
-- RabbitMQ transports events/fan-out; Temporal owns long-lived workflow state.
-- Python is the correctness/reference compute path; WASM is interactive browser compute; GPU engines are later optional accelerators.
-- Heavy arrays/artifacts belong in Arrow/Parquet rather than giant JSON payloads.
+Принципы:
+
+- TimescaleDB хранит временные ряды рыночных данных; обычный PostgreSQL — метаданные и сущности.
+- RabbitMQ передаёт события и выполняет рассылку; Temporal владеет долговременным состоянием процессов.
+- Python является эталонным вычислительным путём правильности; WASM отвечает за интерактивные браузерные вычисления; GPU-движки остаются необязательными ускорителями для поздних этапов.
+- Большие массивы и артефакты следует хранить в Arrow/Parquet, а не передавать огромными JSON-пакетами.

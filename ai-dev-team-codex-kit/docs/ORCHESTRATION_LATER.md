@@ -1,20 +1,20 @@
-# Когда переходить от Codex subagents к своему оркестратору
+# Когда переходить от субагентов Codex к собственному оркестратору
 
-Текущий набор специально построен без отдельного Agents SDK manager-сервиса. Codex сам выступает manager-агентом.
+Текущий набор специально построен без отдельного управляющего сервиса на Agents SDK. Codex сам выступает управляющим агентом.
 
-Переход к программной оркестрации оправдан, когда появится хотя бы один повторяемый workflow такого вида:
+Переход к программной оркестрации оправдан, когда появится хотя бы один повторяемый рабочий процесс такого вида:
 
 ```text
-GitHub issue
-  -> classify
-  -> architecture plan
-  -> parallel implementation in isolated worktrees
-  -> test/eval
-  -> targeted repair loop
-  -> security/perf review
+Задача GitHub
+  -> классификация
+  -> архитектурный план
+  -> параллельная реализация в изолированных worktree
+  -> тестирование и оценка
+  -> направленный цикл исправления
+  -> проверка безопасности и производительности
   -> PR
-  -> wait for review
-  -> address comments
+  -> ожидание проверки
+  -> устранение замечаний
 ```
 
-Тогда отдельный `ai-dev-orchestrator/` можно строить на OpenAI Agents SDK / Responses multi-agent, GitHub MCP/API и OpenTelemetry. До этого TOML-subagents + Skills дают меньшую сложность и лучше контролируются человеком.
+Тогда отдельный `ai-dev-orchestrator/` можно строить на OpenAI Agents SDK, многоагентном режиме Responses, GitHub MCP/API и OpenTelemetry. До этого TOML-субагенты и skills дают меньшую сложность и лучше контролируются человеком.

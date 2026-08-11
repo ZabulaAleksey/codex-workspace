@@ -1,4 +1,5 @@
-# Collaboration override
-- WebRTC transport and Yjs shared-state semantics are separate concerns.
-- Test simultaneous edits, disconnect/reconnect, offline updates and duplicate delivery.
-- Large binary assets live outside Yjs documents; sync references/metadata instead.
+# Дополнительные правила совместной работы
+
+- Транспорт WebRTC и семантика общего состояния Yjs являются отдельными задачами.
+- Тестируй одновременные изменения, отключение и повторное подключение, офлайн-обновления и повторную доставку.
+- Крупные двоичные материалы хранятся вне документов Yjs; синхронизируй только ссылки и метаданные.

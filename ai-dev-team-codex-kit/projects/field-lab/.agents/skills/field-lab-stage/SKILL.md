@@ -1,13 +1,13 @@
 ---
 name: field-lab-stage
-description: Implement exactly one bounded roadmap stage for Field Lab using this project's specialists and verification rules.
+description: Реализовать ровно один ограниченный этап дорожной карты Field Lab с использованием специалистов проекта и правил проверки.
 ---
 
-1. Read `AGENTS.md`, `docs/AI_STATUS.md`, `docs/ROADMAP.md`, `docs/ARCHITECTURE.md` and `docs/AI_PLAN.md`.
-2. Use built-in explorer plus the minimum relevant project specialist(s).
-3. If multiple layers change, use global architect first and freeze interfaces before parallel writes.
-4. Assign disjoint file ownership.
-5. Implement only the selected stage.
-6. Run project-appropriate tests and a global reviewer. Add security/performance review when warranted.
-7. Update `docs/AI_STATUS.md` and decisions/architecture if boundaries changed.
-8. Do not push/deploy/publish unless explicitly requested.
+1. Прочитай `AGENTS.md`, `docs/AI_STATUS.md`, `docs/ROADMAP.md`, `docs/ARCHITECTURE.md` и `docs/AI_PLAN.md`.
+2. Используй встроенного `explorer` и минимально необходимое число проектных специалистов.
+3. Если изменяются несколько слоёв, сначала используй глобального `architect` и зафиксируй интерфейсы до параллельной записи.
+4. Назначь непересекающиеся области владения файлами.
+5. Реализуй только выбранный этап.
+6. Выполни подходящие проекту тесты и запусти глобального `reviewer`. При необходимости добавь проверку безопасности или производительности.
+7. Обнови `docs/AI_STATUS.md`, а при изменении границ — решения и архитектуру.
+8. Не выполняй push, развёртывание или публикацию без явного запроса.
