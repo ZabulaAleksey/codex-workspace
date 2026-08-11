@@ -11,7 +11,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $Kit = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Source = Join-Path $Kit "projects\$Preset"
+$Source = Join-Path $Kit "presets\$Preset"
 $Target = (Resolve-Path $Target).Path
 
 if (-not (Test-Path (Join-Path $Target ".git"))) {
