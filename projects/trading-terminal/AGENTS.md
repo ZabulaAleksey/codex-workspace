@@ -13,6 +13,8 @@ Next.js/React/TypeScript; FastAPI/Python; мост с MT на MQL; PostgreSQL и
 - Не запускай всех специалистов для каждой задачи.
 - Для работы по дорожной карте используй `$implement-stage` или локальный skill проекта.
 - Поддерживай актуальность `docs/AI_STATUS.md`, `docs/AI_PLAN.md`, `docs/ARCHITECTURE.md` и `docs/DECISIONS.md`.
+- Для существенной `STANDARD` или `COMPLEX` функциональности сначала найди или создай SPEC через `specs/README.md`.
+- Загружай только относящиеся к задаче mode, SDLC, domain и stack rules из `~/codex-workspace/rules/`.
 
 ## Дисциплина изменений
 

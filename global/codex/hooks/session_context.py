@@ -5,6 +5,8 @@ from pathlib import Path
 MAX_CHARS = 9000
 FILES = [
     "docs/AI_STATUS.md",
+    "specs/README.md",
+    "specs/system.spec.md",
     "docs/AI_PLAN.md",
     "docs/ARCHITECTURE.md",
 ]
@@ -44,7 +46,7 @@ def main() -> None:
     out = {
         "hookSpecificOutput": {
             "hookEventName": event,
-            "additionalContext": "Project state snapshot (read-only context):\n\n" + "\n\n".join(chunks),
+            "additionalContext": "Снимок состояния и SDD-контекста проекта (только чтение):\n\n" + "\n\n".join(chunks),
         }
     }
     print(json.dumps(out, ensure_ascii=False))

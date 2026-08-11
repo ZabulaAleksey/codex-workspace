@@ -20,7 +20,7 @@ if (-not (Test-Path (Join-Path $Target ".git"))) {
 
 $Files = Get-ChildItem $Source -Recurse -File
 foreach ($File in $Files) {
-    $Rel = $File.FullName.Substring($Source.Length).TrimStart('\\','/')
+    $Rel = $File.FullName.Substring($Source.Length).TrimStart([char]'\', [char]'/')
     $Dest = Join-Path $Target $Rel
     $DestDir = Split-Path -Parent $Dest
     New-Item -ItemType Directory -Force $DestDir | Out-Null
@@ -32,5 +32,5 @@ foreach ($File in $Files) {
     Write-Host "Installed: $Rel" -ForegroundColor Green
 }
 
-Write-Host "\nReview git diff before committing." -ForegroundColor Cyan
-Write-Host "Then start Codex from the repository root and ask: Summarize active instructions and current AI_STATUS." -ForegroundColor Cyan
+Write-Host "`nПеред коммитом проверь git diff." -ForegroundColor Cyan
+Write-Host "Затем запусти Codex из корня репозитория и попроси кратко изложить активные инструкции, relevant SPEC и текущий AI_STATUS." -ForegroundColor Cyan
