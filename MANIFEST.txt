@@ -200,4 +200,5 @@ rules/stacks/typescript.md
 rules/stacks/wasm.md
 rules/stacks/web-audio.md
 rules/stacks/yjs.md
+rules/word-pdf-academic.md
 templates/SPEC_TEMPLATE.md
