@@ -1,5 +1,6 @@
 .gitignore
 AGENTS.md
+MANIFEST.txt
 QUICKSTART.md
 README.md
 backlog/README.md
@@ -9,6 +10,9 @@ backlog/dune2-bot.md
 backlog/low-level-os-lab.md
 backlog/nonogram-solver.md
 backlog/video-compiler.md
+docs/AUTOMATION_EXTENSIONS.md
+docs/CONTEXT_COMPATIBILITY.md
+docs/CONTEXT_POLICY.md
 docs/HOOK_POLICY.md
 docs/LEARNING_LOG.md
 docs/MCP_CATALOG.md
@@ -153,6 +157,7 @@ presets/wifi-share/server/AGENTS.override.md
 presets/wifi-share/specs/README.md
 presets/wifi-share/specs/system.spec.md
 rules/README.md
+rules/domains/README.md
 rules/domains/ai-ml.md
 rules/domains/api.md
 rules/domains/backend.md
@@ -174,6 +179,7 @@ rules/modes/strict.md
 rules/sdd/spec-authoring.md
 rules/sdd/spec-driven-development.md
 rules/sdd/spec-validation.md
+rules/sdlc/README.md
 rules/sdlc/architecture.md
 rules/sdlc/design.md
 rules/sdlc/implementation.md
@@ -183,6 +189,7 @@ rules/sdlc/requirements.md
 rules/sdlc/review.md
 rules/sdlc/specification.md
 rules/sdlc/testing.md
+rules/stacks/README.md
 rules/stacks/arrow-parquet.md
 rules/stacks/cloudflare.md
 rules/stacks/docker.md
@@ -201,4 +208,7 @@ rules/stacks/wasm.md
 rules/stacks/web-audio.md
 rules/stacks/yjs.md
 rules/word-pdf-academic.md
+templates/DEV_LOG_TEMPLATE.md
+templates/LEARNING_LOG_TEMPLATE.md
 templates/SPEC_TEMPLATE.md
+tools/validate_context.py

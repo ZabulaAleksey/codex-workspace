@@ -8,6 +8,9 @@ Set-ExecutionPolicy -Scope Process Bypass
 # 2) Установить глобальное ядро
 .\install-global.ps1
 
+# 2a) Проверить целостность workspace-контекста
+py -3 .\tools\validate_context.py
+
 # 3) Объединить предложенную конфигурацию с существующей, если она была
 notepad "$HOME\.codex\config.ai-dev-team.recommended.toml"
 notepad "$HOME\.codex\config.toml"
