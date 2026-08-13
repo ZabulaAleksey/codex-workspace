@@ -107,6 +107,16 @@
 
 Не загружай по умолчанию полные архивы prompts и roadmap, все fixtures и references, устаревшие отчёты или общие правила, уже унаследованные на более высоком уровне. Подробная политика находится в `docs/CONTEXT_POLICY.md`.
 
+## КАРКАС и автоматизация контекста
+
+Когда пользователь просит «создай КАРКАС» или «сделай АВТОМАТИЗАЦИЮ КОНТЕКСТА», сначала прочитай:
+
+- `~/codex-workspace/docs/PROJECT_FRAMEWORK.md`;
+- `~/codex-workspace/docs/CONTEXT_POLICY.md`;
+- `~/codex-workspace/docs/CONTEXT_COMPATIBILITY.md`.
+
+Интерпретируй КАРКАС как project-specific living contract и staged development overlay, а не как исходный код приложения или копию AI Dev Team. Выполни inspect → gap analysis → minimal delta. Не начинай крупную реализацию продукта, если пользователь запросил только КАРКАС или автоматизацию контекста.
+
 ---
 
 # 3. Git Workflow

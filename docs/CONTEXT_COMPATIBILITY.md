@@ -32,3 +32,16 @@
 - Не создавай второй глобальный config, второй Git workflow, дубликаты универсальных агентов или одинаковые MCP.
 - Локальные hooks и MCP должны закрывать конкретный проектный пробел и иметь минимальные разрешения.
 - Укажи владельца общих manifests/docs и проверь конфликты перед параллельной записью.
+
+## Решение 2026-08-13 — общий КАРКАС проектов
+
+| Возможность | Что уже было | Новая потребность | Статус | Решение |
+|---|---|---|---|---|
+| Терминология КАРКАСА | Project overlay и context policy без общего определения команды | одинаковое значение для всех `projects/*` | `EXTEND` | канонический `docs/PROJECT_FRAMEWORK.md` |
+| Context routing | корневой и глобальный `AGENTS.md` | распознавать команды «создай КАРКАС» / «автоматизация контекста» | `EXTEND` | короткие routers; полный текст не копируется |
+| Bootstrap workflow | generic planning/implementation Skills | повторяемый inspect → gap → minimal delta процесс | `EXTEND` | общий `bootstrap-project-framework` Skill |
+| SessionStart hook | компактный активный context hook | task-aware выбор документов | `INHERITED` | hook не расширять всей библиотекой docs/prompts |
+| Presets/projects | локальные overlays | распространить определение | `INHERITED` | не копировать документ/Skill в каждый repository |
+| OCR-примеры исходного brief | только Text Recognition Core | общая терминология | `CONFLICT` | оставить в TRC; глобальный документ domain-neutral |
+
+Новые hook, MCP, config и subagents не созданы. Skill валидируется штатным `quick_validate.py` и прошёл read-only forward-test на независимом document-converter сценарии.

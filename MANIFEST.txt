@@ -18,6 +18,7 @@ docs/LEARNING_LOG.md
 docs/MCP_CATALOG.md
 docs/MENTORING_GUIDE.md
 docs/ORCHESTRATION_LATER.md
+docs/PROJECT_FRAMEWORK.md
 docs/PROJECT_CATALOG.md
 docs/SDD_GUIDE.md
 docs/TEAM_ARCHITECTURE.md
@@ -45,6 +46,8 @@ global/codex/hooks/guard_destructive.py
 global/codex/hooks/session_context.py
 global/codex/rules/ai-dev-team.rules
 global/skills/explain-change/SKILL.md
+global/skills/bootstrap-project-framework/SKILL.md
+global/skills/bootstrap-project-framework/agents/openai.yaml
 global/skills/fix-bug/SKILL.md
 global/skills/implement-stage/SKILL.md
 global/skills/plan-stage/SKILL.md

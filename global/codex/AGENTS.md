@@ -28,3 +28,7 @@
 - правила тестирования,
 
 если они уже определены AI Dev Team или локальным проектом.
+
+### КАРКАС проекта
+
+Запросы «создай КАРКАС» и «сделай АВТОМАТИЗАЦИЮ КОНТЕКСТА» означают проектирование или настройку project-specific living contract поверх существующей AI Dev Team, а не немедленную реализацию продукта. Если доступна рабочая область `~/codex-workspace`, прочитай её `docs/PROJECT_FRAMEWORK.md`, `docs/CONTEXT_POLICY.md` и `docs/CONTEXT_COMPATIBILITY.md`, затем выполни inspect → gap analysis → minimal project delta.

@@ -163,3 +163,29 @@ Preset-шаблоны перенесены в `presets/`. Каталог `projec
 ### Что стоит изучить
 
 Каскад `AGENTS.md`, project-scoped config layers, trust-модель Codex и progressive disclosure контекста.
+
+## 2026-08-13 — единое определение проектного КАРКАСА
+
+### Задача
+
+Сделать понятия «КАРКАС» и «АВТОМАТИЗАЦИЯ КОНТЕКСТА» одинаково применимыми ко всем проектам `codex-workspace`, не перенося OCR-специфику Text Recognition Core в общую инфраструктуру.
+
+### Что изменили
+
+Добавлен канонический `docs/PROJECT_FRAMEWORK.md`, короткая маршрутизация в workspace/global `AGENTS.md` и общий Skill `bootstrap-project-framework`. README, manifest и каталог проектов синхронизированы.
+
+### Почему выбран такой подход
+
+Полный исходный brief содержал полезные определения, но также старые имена status-файлов и TRC-примеры. Нейтральный канонический документ сохраняет смысл, следует текущей context policy и не расходует контекст каждого проекта на нерелевантную предметную область.
+
+### Проверки
+
+Выполнены `tools/validate_context.py`, Skill `quick_validate.py` в UTF-8-режиме, `git diff --check` и независимый read-only forward-test. Forward-test построил lean overlay, унаследовал общие возможности и остановился до product code.
+
+### Как повторить вручную
+
+1. Прочитать `docs/PROJECT_FRAMEWORK.md` и context policy.
+2. В новом repository вызвать `$bootstrap-project-framework` или попросить «создай КАРКАС».
+3. Проверить canonical SPEC, один AI_STATUS/AI_PLAN и compatibility matrix.
+4. Убедиться, что generic agents/hooks/MCP/config не скопированы локально.
+5. Проверить stage prompts и остановиться до реализации, если код не запрошен.

@@ -45,6 +45,7 @@
 
 ## Управление контекстом
 
+- [`docs/PROJECT_FRAMEWORK.md`](docs/PROJECT_FRAMEWORK.md) определяет общие для всех проектов понятия КАРКАСА и АВТОМАТИЗАЦИИ КОНТЕКСТА.
 - [`docs/CONTEXT_POLICY.md`](docs/CONTEXT_POLICY.md) задаёт порядок загрузки, проектный overlay и канонические имена документов.
 - [`docs/CONTEXT_COMPATIBILITY.md`](docs/CONTEXT_COMPATIBILITY.md) используется перед добавлением agents, hooks, MCP, Skills или config.
 - [`docs/AUTOMATION_EXTENSIONS.md`](docs/AUTOMATION_EXTENSIONS.md) описывает опциональные расширения и условия, при которых они оправданы.
@@ -149,6 +150,7 @@ $resume-project
 $fix-bug
 $review-change
 $explain-change
+$bootstrap-project-framework
 ```
 
 ## Важное про расход лимита
