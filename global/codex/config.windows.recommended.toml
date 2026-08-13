@@ -1,5 +1,5 @@
-# Merge this file into %USERPROFILE%\.codex\config.toml.
-# Do not blindly overwrite an existing config.
+# Объедини этот файл с %USERPROFILE%\.codex\config.toml.
+# Не перезаписывай существующую конфигурацию вслепую.
 
 project_doc_max_bytes = 65536
 
@@ -13,16 +13,16 @@ max_concurrent_threads_per_session = 4
 default_subagent_reasoning_effort = "medium"
 interrupt_message = true
 
-# Always-current OpenAI/Codex docs.
+# Всегда актуальная документация OpenAI/Codex.
 [mcp_servers.openaiDeveloperDocs]
 url = "https://developers.openai.com/mcp"
 
-# General library/framework docs.
+# Общая документация библиотек и фреймворков.
 [mcp_servers.context7]
 command = "cmd"
 args = ["/c", "npx", "-y", "@upstash/context7-mcp"]
 
-# Enable after setting GITHUB_PERSONAL_ACCESS_TOKEN.
+# Включать после задания GITHUB_PERSONAL_ACCESS_TOKEN.
 [mcp_servers.github]
 url = "https://api.githubcopilot.com/mcp/"
 bearer_token_env_var = "GITHUB_PERSONAL_ACCESS_TOKEN"

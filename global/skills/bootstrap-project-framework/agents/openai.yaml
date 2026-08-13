@@ -1,4 +1,4 @@
 interface:
-  display_name: "Bootstrap Project Framework"
-  short_description: "Create a lean staged project framework"
-  default_prompt: "Use $bootstrap-project-framework to create a project framework from this specification."
+  display_name: "Создание КАРКАСА проекта"
+  short_description: "Создать компактный поэтапный КАРКАС проекта"
+  default_prompt: "Используй $bootstrap-project-framework, чтобы создать КАРКАС проекта по этой спецификации."

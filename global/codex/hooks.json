@@ -1,5 +1,5 @@
 {
-  "description": "AI Dev Team lifecycle hooks: load compact project state and block a small set of destructive commands.",
+  "description": "Hooks жизненного цикла AI Dev Team: загружают компактное состояние проекта и блокируют небольшой набор разрушительных команд.",
   "hooks": {
     "SessionStart": [
       {
@@ -9,7 +9,7 @@
             "type": "command",
             "command": "python3 ~/.codex/hooks/session_context.py",
             "commandWindows": "py -3 \"%USERPROFILE%\\.codex\\hooks\\session_context.py\"",
-            "statusMessage": "Loading project AI status",
+            "statusMessage": "Загрузка состояния AI-проекта",
             "additionalContextLimit": 3000,
             "timeout": 5
           }
@@ -23,7 +23,7 @@
             "type": "command",
             "command": "python3 ~/.codex/hooks/session_context.py",
             "commandWindows": "py -3 \"%USERPROFILE%\\.codex\\hooks\\session_context.py\"",
-            "statusMessage": "Loading project context for subagent",
+            "statusMessage": "Загрузка контекста проекта для субагента",
             "additionalContextLimit": 2000,
             "timeout": 5
           }
@@ -38,7 +38,7 @@
             "type": "command",
             "command": "python3 ~/.codex/hooks/guard_destructive.py",
             "commandWindows": "py -3 \"%USERPROFILE%\\.codex\\hooks\\guard_destructive.py\"",
-            "statusMessage": "Checking destructive command policy",
+            "statusMessage": "Проверка политики разрушительных команд",
             "timeout": 5
           }
         ]

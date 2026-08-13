@@ -2,20 +2,22 @@ import json
 import re
 import sys
 
-# Intentionally small deny-list. Broad safety policy belongs in Codex permissions/rules,
-# not in brittle regexes.
+# Deny-list намеренно мал. Общая политика безопасности должна находиться в
+# разрешениях и rules Codex, а не в хрупких регулярных выражениях.
 DENY = [
-    (r"\bgit\s+reset\s+--hard\b", "git reset --hard can destroy uncommitted work."),
-    (r"\bgit\s+clean\s+-[^\s]*f", "git clean -f can irreversibly remove untracked files."),
-    (r"\bgit\s+push\b[^\n]*\s(--force|-f)(\s|$)", "Force-push is blocked by the global AI team hook."),
-    (r"\bdocker\s+system\s+prune\b", "docker system prune can remove unrelated local resources."),
-    (r"\bDROP\s+DATABASE\b", "DROP DATABASE requires explicit human execution."),
-    (r"\bRemove-Item\b[^\n]*-Recurse[^\n]*-Force[^\n]*(?:[A-Za-z]:\\|/)(?:\s|$)", "Recursive force deletion at a drive/root-like path is blocked."),
-    (r"\brm\s+-rf\s+/(?:\s|$|\*)", "Recursive deletion of filesystem root is blocked."),
+    (r"\bgit\s+reset\s+--hard\b", "git reset --hard может уничтожить незакоммиченные изменения."),
+    (r"\bgit\s+clean\s+-[^\s]*f", "git clean -f может необратимо удалить неотслеживаемые файлы."),
+    (r"\bgit\s+push\b[^\n]*\s(--force|-f)(\s|$)", "Force-push заблокирован глобальным hook AI-команды."),
+    (r"\bdocker\s+system\s+prune\b", "docker system prune может удалить локальные ресурсы других проектов."),
+    (r"\bDROP\s+DATABASE\b", "DROP DATABASE должен выполнять человек после явного решения."),
+    (r"\bRemove-Item\b[^\n]*-Recurse[^\n]*-Force[^\n]*(?:[A-Za-z]:\\|/)(?:\s|$)", "Рекурсивное принудительное удаление пути, похожего на корень диска, заблокировано."),
+    (r"\brm\s+-rf\s+/(?:\s|$|\*)", "Рекурсивное удаление корня файловой системы заблокировано."),
 ]
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     payload = json.load(sys.stdin)
     tool_input = payload.get("tool_input") or {}
     command = tool_input.get("command") if isinstance(tool_input, dict) else ""
@@ -27,7 +29,7 @@ def main() -> None:
                 "hookSpecificOutput": {
                     "hookEventName": "PreToolUse",
                     "permissionDecision": "deny",
-                    "permissionDecisionReason": reason + " Use a non-destructive alternative or ask the user for explicit manual action."
+                    "permissionDecisionReason": reason + " Используй неразрушительную альтернативу или попроси пользователя выполнить действие вручную."
                 }
             }))
             return

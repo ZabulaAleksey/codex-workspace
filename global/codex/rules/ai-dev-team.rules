@@ -1,49 +1,49 @@
-# Rules are an additional guardrail for commands that request execution outside the sandbox.
+# Rules создают дополнительное ограничение для команд, запрашивающих выполнение вне sandbox.
 
 prefix_rule(
     pattern = ["git", "push", "--force"],
     decision = "forbidden",
-    justification = "Force-push is not delegated to Codex. Use a normal push or perform the force-push manually after review.",
+    justification = "Force-push не делегируется Codex. Используй обычный push либо выполни force-push вручную после проверки.",
 )
 
 prefix_rule(
     pattern = ["git", "push", "-f"],
     decision = "forbidden",
-    justification = "Force-push is not delegated to Codex.",
+    justification = "Force-push не делегируется Codex.",
 )
 
 prefix_rule(
     pattern = ["git", "reset", "--hard"],
     decision = "forbidden",
-    justification = "Hard reset may destroy uncommitted work. Prefer a reversible restore or explicit manual action.",
+    justification = "Hard reset может уничтожить незакоммиченную работу. Предпочитай обратимое восстановление или явное ручное действие.",
 )
 
 prefix_rule(
     pattern = ["git", "clean", "-fd"],
     decision = "forbidden",
-    justification = "git clean can irreversibly remove untracked files.",
+    justification = "git clean может необратимо удалить неотслеживаемые файлы.",
 )
 
 prefix_rule(
     pattern = ["git", "push"],
     decision = "prompt",
-    justification = "External GitHub write: confirm before pushing.",
+    justification = "Внешняя запись в GitHub: требуется подтверждение перед push.",
 )
 
 prefix_rule(
     pattern = ["gh", "pr", "create"],
     decision = "prompt",
-    justification = "Creating a pull request is an external write.",
+    justification = "Создание pull request является внешней операцией записи.",
 )
 
 prefix_rule(
     pattern = ["npm", "publish"],
     decision = "prompt",
-    justification = "Publishing a package is an external write.",
+    justification = "Публикация пакета является внешней операцией записи.",
 )
 
 prefix_rule(
     pattern = ["docker", "system", "prune"],
     decision = "forbidden",
-    justification = "System-wide prune can remove resources belonging to other projects.",
+    justification = "Системная очистка может удалить ресурсы других проектов.",
 )

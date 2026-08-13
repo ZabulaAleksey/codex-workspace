@@ -21,6 +21,8 @@ def find_repo_root(start: Path) -> Path:
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     payload = json.load(sys.stdin)
     cwd = Path(payload.get("cwd") or ".").expanduser()
     root = find_repo_root(cwd)
@@ -31,7 +33,7 @@ def main() -> None:
         if not path.exists() or not path.is_file():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
-        # Keep status first and cap each file to avoid flooding context.
+        # Сохраняем статус первым и ограничиваем каждый файл, чтобы не переполнять контекст.
         part = text[: min(len(text), remaining, 3500)]
         if part.strip():
             chunks.append(f"## {rel}\n{part}")

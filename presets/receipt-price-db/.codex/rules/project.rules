@@ -1,6 +1,6 @@
-# Project-local policy. Global rules still apply.
+# Локальная политика проекта. Глобальные rules продолжают действовать.
 prefix_rule(
     pattern = ["git", "push"],
     decision = "prompt",
-    justification = "Project external write requires approval.",
+    justification = "Внешняя операция записи проекта требует подтверждения.",
 )

@@ -25,7 +25,6 @@ docs/TEAM_ARCHITECTURE.md
 docs/TEAM_COMMANDS.md
 docs/VERIFY_SETUP.md
 docs/WORKFLOW.md
-docs/WORKSPACE_MIGRATION_PROMPTS.md
 global/codex/AGENTS.md
 global/codex/agents/architect.toml
 global/codex/agents/backend_engineer.toml

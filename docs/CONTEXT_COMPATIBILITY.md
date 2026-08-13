@@ -43,5 +43,6 @@
 | SessionStart hook | компактный активный context hook | task-aware выбор документов | `INHERITED` | hook не расширять всей библиотекой docs/prompts |
 | Presets/projects | локальные overlays | распространить определение | `INHERITED` | не копировать документ/Skill в каждый repository |
 | OCR-примеры исходного brief | только Text Recognition Core | общая терминология | `CONFLICT` | оставить в TRC; глобальный документ domain-neutral |
+| Язык проектного контекста | единого правила не было, часть agents и документов была на английском | единый читаемый язык новых КАРКАСОВ | `EXTEND` | русский по умолчанию в `AGENTS.md`, `PROJECT_FRAMEWORK.md` и bootstrap Skill; программные идентификаторы и внешние контракты не переводятся |
 
 Новые hook, MCP, config и subagents не созданы. Skill валидируется штатным `quick_validate.py` и прошёл read-only forward-test на независимом document-converter сценарии.

@@ -5,4 +5,4 @@ hooks = true
 [agents]
 max_concurrent_threads_per_session = 4
 
-# Optional: add Playwright/Chrome DevTools from docs/MCP.md when the browser UI becomes active.
+# Необязательно: добавь Playwright/Chrome DevTools из docs/MCP.md, когда появится активный браузерный UI.

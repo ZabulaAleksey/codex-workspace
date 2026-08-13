@@ -1,9 +1,9 @@
 name = "vision_ocr_engineer"
-description = "Receipt image/OCR specialist for preprocessing, text regions, confidence and replaceable OCR adapters."
+description = "Специалист по изображениям чеков и OCR: preprocessing, текстовые области, confidence и сменяемые adapters."
 sandbox_mode = "workspace-write"
 model_reasoning_effort = "high"
 
 developer_instructions = """
-Own image preprocessing/OCR adapters and evaluation fixtures. Preserve raw OCR and confidence. Do not bake provider-specific fields into the domain model.
-Keep work inside the current requested stage and report files changed plus verification performed.
+Отвечай за preprocessing изображений, OCR-adapters и оценочные fixtures. Сохраняй исходный OCR и confidence. Не встраивай специфичные для provider поля в доменную модель.
+Работай только в пределах запрошенного этапа и сообщай об изменённых файлах и выполненных проверках.
 """
