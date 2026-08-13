@@ -18,7 +18,7 @@
 
 1. **Глобальное ядро команды** хранится в `~/.codex/agents/`.
 2. **Глобальные рабочие процессы** хранятся в `~/.agents/skills/`.
-3. Каждый репозиторий имеет свой `AGENTS.md`, `.codex/agents/`, `.agents/skills/` и `docs/AI_*.md`.
+3. Каждый репозиторий имеет тонкий `AGENTS.md`, SPEC и `docs/AI_*.md`; локальные `.codex/agents/` и `.agents/skills/` добавляются только при подтверждённом проектном пробеле.
 4. Глобальные hooks защищают от опасных команд и подмешивают краткий статус проекта в контекст.
 5. Rules задают детерминированную политику для опасных shell-команд.
 6. MCP подключаются по принципу минимально необходимого набора инструментов.
@@ -104,6 +104,13 @@ receipt-price-db
 
 ```powershell
 py -3 .\tools\validate_context.py
+```
+
+Затем проверь один независимый project overlay (команда ничего не изменяет):
+
+```powershell
+py -3 .\tools\validate_project_overlay.py .\projects\<project>
+py -3 .\tools\validate_project_overlay.py .\projects\<project> --json
 ```
 
 Из корня рабочего репозитория `~/codex-workspace/projects/<project>`:

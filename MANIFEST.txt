@@ -10,9 +10,14 @@ backlog/dune2-bot.md
 backlog/low-level-os-lab.md
 backlog/nonogram-solver.md
 backlog/video-compiler.md
+docs/AI_PLAN.md
+docs/AI_STATUS.md
+docs/ARCHITECTURE.md
 docs/AUTOMATION_EXTENSIONS.md
 docs/CONTEXT_COMPATIBILITY.md
 docs/CONTEXT_POLICY.md
+docs/DECISIONS.md
+docs/DESIGN.md
 docs/HOOK_POLICY.md
 docs/LEARNING_LOG.md
 docs/MCP_CATALOG.md
@@ -20,7 +25,9 @@ docs/MENTORING_GUIDE.md
 docs/ORCHESTRATION_LATER.md
 docs/PROJECT_FRAMEWORK.md
 docs/PROJECT_CATALOG.md
+docs/ROADMAP.md
 docs/SDD_GUIDE.md
+docs/SECURITY.md
 docs/TEAM_ARCHITECTURE.md
 docs/TEAM_COMMANDS.md
 docs/VERIFY_SETUP.md
@@ -210,7 +217,12 @@ rules/stacks/wasm.md
 rules/stacks/web-audio.md
 rules/stacks/yjs.md
 rules/word-pdf-academic.md
+specs/README.md
+specs/features/project-overlay-rollout.spec.md
+specs/system.spec.md
 templates/DEV_LOG_TEMPLATE.md
 templates/LEARNING_LOG_TEMPLATE.md
 templates/SPEC_TEMPLATE.md
 tools/validate_context.py
+tools/test_validate_project_overlay.py
+tools/validate_project_overlay.py

@@ -46,3 +46,16 @@
 | Язык проектного контекста | единого правила не было, часть agents и документов была на английском | единый читаемый язык новых КАРКАСОВ | `EXTEND` | русский по умолчанию в `AGENTS.md`, `PROJECT_FRAMEWORK.md` и bootstrap Skill; программные идентификаторы и внешние контракты не переводятся |
 
 Новые hook, MCP, config и subagents не созданы. Skill валидируется штатным `quick_validate.py` и прошёл read-only forward-test на независимом document-converter сценарии.
+
+## Решение 2026-08-13 — проверка project overlay
+
+| Возможность | Что уже было | Новая потребность | Статус | Решение |
+|---|---|---|---|---|
+| Workspace validation | `tools/validate_context.py` проверяет manifest общей инфраструктуры | проверить один независимый project repository | `EXTEND` | отдельный read-only `tools/validate_project_overlay.py` |
+| Rollout inventory | тематический список проектов | lifecycle, Git-ready, blocker и следующее действие | `EXTEND` | один канонический `docs/PROJECT_CATALOG.md`, без JSON/YAML-копии |
+| Agents / Skills / hooks / rules / workflow | канонические источники в workspace/global | не допустить точных локальных копий | `INHERITED` | SHA-256 comparison; найденные копии только диагностируются |
+| Project-local automation | могла существовать без единого gate | требовать явное решение о локальной delta | `EXTEND` | при наличии automation обязателен `docs/CONTEXT_COMPATIBILITY.md` проекта |
+
+Новые hook, MCP, config, generic agents и workflow не добавлены. Validator использует только Python standard library и Git, не выполняет project-код и не изменяет проверяемый repository.
+
+Пользовательский `~/.codex/AGENTS.md` и `~/.agents/skills/bootstrap-project-framework` синхронизированы с их каноническими workspace-источниками. Это статус `INHERITED` для всех проектов: Skill и router не копируются в каждый repository.

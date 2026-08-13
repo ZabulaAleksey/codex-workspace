@@ -1,5 +1,40 @@
 # Учебный журнал
 
+## 2026-08-13 — Read-only проверка project overlay
+
+### Задача
+
+Превратить требования КАРКАСА в воспроизводимый допуск одного независимого repository и зафиксировать последовательную очередь rollout.
+
+### Что изменили
+
+Добавлен `tools/validate_project_overlay.py` с human/JSON output, unit-тесты для complete, incomplete, duplicate, non-Git и повторного запуска, а также единый `docs/PROJECT_CATALOG.md`. Workspace manifest теперь требует канонические SPEC, framework-документы и validator.
+
+### Существенные команды
+
+```powershell
+py -3 -B -m unittest tools/test_validate_project_overlay.py -v
+py -3 -B tools/validate_project_overlay.py projects/text-recognition-core
+py -3 -B tools/validate_context.py
+git diff --check
+```
+
+### Почему выбран такой подход
+
+Validator отделяет диагностику от изменений: он не исправляет repository и не выполняет его код. Точные дубликаты сравниваются по SHA-256, а `git -c safe.directory=<target>` ограничивает доверие одним процессом без изменения глобального Git config.
+
+### Как повторить самостоятельно
+
+1. Запустить validator на эталонном complete repository.
+2. Запустить его на incomplete repository и прочитать стабильные issue codes.
+3. Повторить запуск и сравнить `git status` до и после.
+4. При локальной automation создать осмысленный compatibility audit, не копируя глобальные возможности.
+5. Обновить Markdown-каталог после подтверждённого результата rollout.
+
+### Результат пилота
+
+`OffScreenCanvas` получил только SPEC, framework-документы и тонкую маршрутизацию в `AGENTS.md`. Runtime-файлы не менялись. Validator и SessionStart forward-test прошли; следующий отдельный кандидат зафиксирован как `electro-tutor`.
+
 ## 2026-08-11 — Интеграция SDD в AI Dev Team
 
 ### Задача
