@@ -18,7 +18,7 @@
 | `electro-tutor` | active | да, clean | incomplete | — | **следующий rollout-кандидат после пилота** |
 | `math-morph` | active | нет, dirty | blocked | `dirty-worktree` | дождаться завершения или разделения текущих изменений |
 | `monte-carlo` | active | да, clean | incomplete | — | оставить в очереди после следующего кандидата |
-| `OffScreenCanvas` | active | да, rollout-ветка | complete | — | сохранить как первый проверенный пилот; product stage выполнять отдельно |
+| `off-screen-canvas` | active | да, rollout-ветка | complete | — | сохранить как первый проверенный пилот; product stage выполнять отдельно |
 | `receipt-scanner-ua` | active | да, clean | incomplete | `stale-compatibility` | актуализировать compatibility audit перед rollout |
 | `server` | active | да, clean | incomplete | — | провести gap analysis в последующей волне |
 | `Task_21.07_Svelte` | active | да, clean | incomplete | — | провести gap analysis локальной automation |
@@ -29,6 +29,6 @@
 
 ## Текущий допуск
 
-Пилот `OffScreenCanvas` успешно проходит read-only validator; runtime-код не изменён. Единственный эталон, независимо прошедший ту же проверку, — `text-recognition-core`.
+Пилот `off-screen-canvas` успешно проходит read-only validator; runtime-код не изменён. Единственный эталон, независимо прошедший ту же проверку, — `text-recognition-core`.
 
 Ровно один следующий кандидат — `electro-tutor`, если новый read-only снимок не выявит `dirty-worktree`, `not-git-root` или необходимость менять runtime-код. В таком случае rollout останавливается и blocker фиксируется здесь до выбора другого repository.

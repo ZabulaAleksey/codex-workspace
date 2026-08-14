@@ -6,7 +6,7 @@
 
 ## Цель
 
-Активировать глобальный КАРКАС Codex, добавить воспроизводимую read-only проверку project overlay и подключить `projects/OffScreenCanvas` как первый пилот без изменения продукта.
+Активировать глобальный КАРКАС Codex, добавить воспроизводимую read-only проверку project overlay и подключить `projects/off-screen-canvas` как первый пилот без изменения продукта.
 
 ## Требования
 
@@ -23,9 +23,9 @@
 
 ### Пилот
 
-- `projects/OffScreenCanvas/AGENTS.md` только при подтверждённом пробеле;
-- `projects/OffScreenCanvas/specs/`;
-- `projects/OffScreenCanvas/docs/`.
+- `projects/off-screen-canvas/AGENTS.md` только при подтверждённом пробеле;
+- `projects/off-screen-canvas/specs/`;
+- `projects/off-screen-canvas/docs/`.
 
 Runtime-файлы продукта запрещены.
 
@@ -56,5 +56,5 @@ Runtime-файлы продукта запрещены.
 
 - пользовательские router и `bootstrap-project-framework` синхронизированы с каноническими файлами по SHA-256;
 - read-only validator и автоматические тесты реализованы;
-- `OffScreenCanvas` проходит validation и SessionStart forward-test без runtime-изменений;
+- `off-screen-canvas` проходит validation и SessionStart forward-test без runtime-изменений;
 - единственный следующий rollout-кандидат — `electro-tutor`.
