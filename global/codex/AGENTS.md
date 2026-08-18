@@ -31,7 +31,7 @@
 
 ### КАРКАС проекта
 
-Запросы «создай КАРКАС» и «сделай АВТОМАТИЗАЦИЮ КОНТЕКСТА» означают проектирование или настройку project-specific living contract поверх существующей AI Dev Team, а не немедленную реализацию продукта. Если доступна рабочая область `~/codex-workspace`, прочитай её `docs/PROJECT_FRAMEWORK.md`, `docs/CONTEXT_POLICY.md` и `docs/CONTEXT_COMPATIBILITY.md`, затем выполни inspect → gap analysis → minimal project delta.
+Запросы «создай КАРКАС» и «сделай АВТОМАТИЗАЦИЮ КОНТЕКСТА» означают проектирование или настройку project-specific living contract поверх существующей AI Dev Team, а не немедленную реализацию продукта. Если доступна рабочая область `~/codex-workspace`, прочитай её `~/codex-workspace/docs/PROJECT_FRAMEWORK.md`, `~/codex-workspace/docs/CONTEXT_POLICY.md` и `~/codex-workspace/docs/CONTEXT_COMPATIBILITY.md`, затем выполни inspect → gap analysis → minimal project delta.
 
 ### Язык контекста
 
