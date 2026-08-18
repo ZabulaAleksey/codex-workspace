@@ -4,7 +4,7 @@
 
 ## Этап
 
-Project overlay rollout, этап 1 завершён: workspace-инструменты и пилот `OffScreenCanvas` проверены.
+Project overlay rollout, этап 1 завершён: workspace-инструменты и пилот `off-screen-canvas` проверены.
 
 ## Реализовано в workspace
 
@@ -14,7 +14,7 @@ Project overlay rollout, этап 1 завершён: workspace-инструме
 - read-only project-overlay validator с human/JSON output;
 - автоматические сценарии complete, incomplete, duplicate, non-Git и idempotent/no-mutation.
 - пользовательский `~/.codex/AGENTS.md` и Skill `bootstrap-project-framework` синхронизированы с каноническими файлами без изменения остальных capabilities;
-- пилот `OffScreenCanvas` проходит validator; его runtime-код не изменён;
+- пилот `off-screen-canvas` проходит validator; его runtime-код не изменён;
 - SessionStart пилота доставляет компактный набор status/SPEC/plan/architecture без roadmap и learning log.
 
 ## Ограничения и blockers

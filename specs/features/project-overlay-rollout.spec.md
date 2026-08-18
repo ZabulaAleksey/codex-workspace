@@ -50,7 +50,7 @@ Repository допускается к изменению только если о
 
 ### FR-105 Пилотный overlay
 
-Первым изменяемым repository является `projects/OffScreenCanvas`. Его project delta должна описать фактический проект, существующее поведение, текущий этап и дальнейшие шаги без изменения runtime-кода.
+Первым изменяемым repository является `projects/off-screen-canvas`. Его project delta должна описать фактический проект, существующее поведение, текущий этап и дальнейшие шаги без изменения runtime-кода.
 
 ### FR-106 Продолжение очереди
 
@@ -97,7 +97,7 @@ Workspace delta и pilot delta должны находиться в отдель
 - AC-101 `~/.codex/AGENTS.md` содержит project-framework router, а пользовательский Skill установлен один раз; существующий пользовательский контент сохранён.
 - AC-102 `tools/validate_context.py` продолжает успешно проверять workspace manifest.
 - AC-103 project-overlay validator имеет автоматические тесты для complete, incomplete, duplicate и non-Git сценариев.
-- AC-104 `projects/OffScreenCanvas` проходит project-overlay validation после пилота.
+- AC-104 `projects/off-screen-canvas` проходит project-overlay validation после пилота.
 - AC-105 Diff пилота не содержит runtime-кода и локальных generic agents/Skills/hooks/MCP/config/Git workflow.
 - AC-106 `docs/PROJECT_CATALOG.md` фиксирует результат пилота, blockers и один следующий rollout-кандидат.
 - AC-107 Релевантный SessionStart/ручной forward-test использует компактный набор проектного контекста.
@@ -119,4 +119,4 @@ Workspace delta и pilot delta должны находиться в отдель
 
 ## 11. История изменений
 
-- 2026-08-13 — версия 1.0: глобальная активация, read-only validator, единый реестр и пилот `OffScreenCanvas`.
+- 2026-08-13 — версия 1.0: глобальная активация, read-only validator, единый реестр и пилот `off-screen-canvas`.

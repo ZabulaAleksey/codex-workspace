@@ -33,7 +33,7 @@ Validator отделяет диагностику от изменений: он 
 
 ### Результат пилота
 
-`OffScreenCanvas` получил только SPEC, framework-документы и тонкую маршрутизацию в `AGENTS.md`. Runtime-файлы не менялись. Validator и SessionStart forward-test прошли; следующий отдельный кандидат зафиксирован как `electro-tutor`.
+`off-screen-canvas` получил только SPEC, framework-документы и тонкую маршрутизацию в `AGENTS.md`. Runtime-файлы не менялись. Validator и SessionStart forward-test прошли; следующий отдельный кандидат зафиксирован как `electro-tutor`.
 
 ## 2026-08-11 — Интеграция SDD в AI Dev Team
 
