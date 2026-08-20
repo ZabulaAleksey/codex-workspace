@@ -1,47 +1,22 @@
 # Текущий план AI Dev Team
 
-Статус: В работе
-Этап: Canonical fallback policy + Node package management
+Статус: Завершён
+Этап: Canonical fallback policy + Node package management + workspace decoupling
 Дата: 2026-08-20
 
-## Цель
+## Результат
 
-Усилить самостоятельный канонический слой инженерных правил AI Dev Team:
-
-1. создать единый `rules/fallback-policy.md`;
-2. подключить его через context routing без глобального автозагружания;
-3. закрепить inheritance/project-delta contract для fallback rules;
-4. заполнить `rules/node-package-management.md`;
-5. синхронизировать architecture, decisions и compatibility документацию ДЕВ;
-6. обеспечить возможность независимого наследования этих правил любым project overlay.
-
-## Область
-
-Изменения относятся только к repository AI Dev Team.
-
-Product repositories не являются частью этого этапа
-и не определяют его завершённость.
+- `rules/fallback-policy.md` стал единым глобальным контрактом retry/fallback/degraded/fail-closed;
+- `rules/node-package-management.md` стал каноническим Node/Corepack/npm/pnpm/Yarn policy;
+- новые rules включены в manifest и workspace validation;
+- ДЕВ больше не хранит live inventory или очередь product repositories;
+- project-overlay validator остаётся reusable read-only capability;
+- project-specific fallback хранится только как delta в product repositories.
 
 ## Definition of Done
 
-- `rules/fallback-policy.md` является единственным глобальным
-  источником retry/fallback/degraded/fail-closed contract;
-- `rules/README.md` корректно маршрутизирует эту policy;
-- корневой `AGENTS.md` содержит только компактный router;
-- `docs/PROJECT_FRAMEWORK.md` определяет правило project-specific delta;
-- `docs/CONTEXT_COMPATIBILITY.md` фиксирует inheritance;
-- `docs/ARCHITECTURE.md` отражает policy layer;
-- `docs/DECISIONS.md` фиксирует решение об одном каноническом источнике;
-- `rules/node-package-management.md` содержит канонические
-  Node/Corepack/npm/pnpm/Yarn правила для Windows и других сред;
-- Node/package-manager fallback подчиняется общей Fallback Policy;
-- validators и относящиеся тесты проходят;
-- никакой product repository не требуется для признания этапа завершённым.
-
-## Остановка / fail closed
-
-Если новое общее правило требует знания,
-специфичного только для одного продукта,
-оно не добавляется в ДЕВ как глобальная policy.
-
-Такое правило должно оставаться project-specific delta.
+- workspace validator PASS;
+- manifest синхронизирован;
+- нет зависимости AI_STATUS/ROADMAP от product lifecycle;
+- Fallback Policy и Node Policy маршрутизируются корректно;
+- product repositories не требуются для признания этапа завершённым.

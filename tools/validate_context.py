@@ -19,15 +19,17 @@ REQUIRED = {
     "docs/CONTEXT_POLICY.md",
     "docs/DECISIONS.md",
     "docs/DESIGN.md",
-    "docs/PROJECT_CATALOG.md",
     "docs/PROJECT_FRAMEWORK.md",
     "docs/ROADMAP.md",
     "docs/SECURITY.md",
     "docs/SDD_GUIDE.md",
     "docs/WORKFLOW.md",
+    "rules/fallback-policy.md",
     "rules/README.md",
+    "rules/model-routing.md",
     "rules/modes/standard.md",
     "rules/modes/strict.md",
+    "rules/node-package-management.md",
     "templates/SPEC_TEMPLATE.md",
     "specs/README.md",
     "specs/system.spec.md",
@@ -56,7 +58,8 @@ def main() -> int:
         print("ERROR: MANIFEST.txt is missing", file=sys.stderr)
         return 1
 
-    entries = [line.strip() for line in MANIFEST.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
+    entries = [line.strip() for line in MANIFEST.read_text(
+        encoding="utf-8-sig").splitlines() if line.strip()]
     manifest_files: set[str] = set()
     casefolded: dict[str, str] = {}
 
@@ -68,7 +71,8 @@ def main() -> int:
 
         folded = entry.casefold()
         if folded in casefolded:
-            errors.append(f"duplicate manifest path ignoring case: {casefolded[folded]} / {entry}")
+            errors.append(
+                f"duplicate manifest path ignoring case: {casefolded[folded]} / {entry}")
         else:
             casefolded[folded] = entry
         manifest_files.add(entry)
@@ -85,9 +89,11 @@ def main() -> int:
         errors.append(f"cannot enumerate Git-visible files: {exc}")
     else:
         for entry in sorted(visible_files - manifest_files):
-            errors.append(f"Git-visible file is not listed in manifest: {entry}")
+            errors.append(
+                f"Git-visible file is not listed in manifest: {entry}")
         for entry in sorted(manifest_files - visible_files):
-            errors.append(f"manifest entry is ignored or outside Git-visible files: {entry}")
+            errors.append(
+                f"manifest entry is ignored or outside Git-visible files: {entry}")
 
     if errors:
         print("Context validation failed:", file=sys.stderr)

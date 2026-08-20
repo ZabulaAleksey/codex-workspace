@@ -1,5 +1,6 @@
 .gitignore
 AGENTS.md
+DESIGN.md
 MANIFEST.txt
 QUICKSTART.md
 README.md
@@ -24,7 +25,6 @@ docs/MCP_CATALOG.md
 docs/MENTORING_GUIDE.md
 docs/ORCHESTRATION_LATER.md
 docs/PROJECT_FRAMEWORK.md
-docs/PROJECT_CATALOG.md
 docs/ROADMAP.md
 docs/SDD_GUIDE.md
 docs/SECURITY.md
@@ -182,9 +182,12 @@ rules/domains/networking.md
 rules/domains/realtime.md
 rules/domains/scientific-computing.md
 rules/domains/security.md
+rules/fallback-policy.md
+rules/model-routing.md
 rules/modes/prototype.md
 rules/modes/standard.md
 rules/modes/strict.md
+rules/node-package-management.md
 rules/sdd/spec-authoring.md
 rules/sdd/spec-driven-development.md
 rules/sdd/spec-validation.md

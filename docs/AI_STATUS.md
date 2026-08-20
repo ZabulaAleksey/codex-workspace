@@ -1,30 +1,35 @@
 # Текущее состояние AI Dev Team
 
-Дата: 2026-08-13
+Дата: 2026-08-20
 
-## Этап
+## Статус
 
-Project overlay rollout, этап 1 завершён: workspace-инструменты и пилот `off-screen-canvas` проверены.
+Canonical Fallback Policy и Node package-management policy внедрены.
+Workspace decoupling от live product-status завершён текущим corrective stage.
 
-## Реализовано в workspace
+## Реализовано
 
-- канонические определения КАРКАСА и policy контекста;
-- утверждённая feature-SPEC rollout;
-- единый Markdown-каталог всех `projects/*`;
-- read-only project-overlay validator с human/JSON output;
-- автоматические сценарии complete, incomplete, duplicate, non-Git и idempotent/no-mutation.
-- пользовательский `~/.codex/AGENTS.md` и Skill `bootstrap-project-framework` синхронизированы с каноническими файлами без изменения остальных capabilities;
-- пилот `off-screen-canvas` проходит validator; его runtime-код не изменён;
-- SessionStart пилота доставляет компактный набор status/SPEC/plan/architecture без roadmap и learning log.
+- канонический `rules/fallback-policy.md`;
+- канонический `rules/node-package-management.md`;
+- `rules/model-routing.md`;
+- selective context routing через `rules/README.md` и `AGENTS.md`;
+- project-specific fallback delta через `docs/FALLBACKS.md` в product overlays;
+- read-only `validate_project_overlay.py`;
+- workspace manifest/context validator;
+- project framework, context compatibility и SDD infrastructure.
 
-## Ограничения и blockers
+## Инварианты
 
-- `dune-rts`: `not-git-root`;
-- `math-morph`: `dirty-worktree`;
-- `receipt-scanner-ua`: compatibility audit требует актуализации;
-- `video-chronicle`: отсутствуют канонические `docs/AI_PLAN.md` и `specs/system.spec.md`;
-- validator проверяет точное совпадение файлов по SHA-256, но не пытается доказывать семантическое копирование изменённого текста.
+- ДЕВ не хранит live blockers или этапы product repositories;
+- product repositories не определяют завершённость этапов ДЕВ;
+- общий fallback contract не копируется в project overlays;
+- project-specific правила остаются локальной delta.
+
+## Blockers
+
+Нет известных blockers самого ДЕВ после успешного прохождения workspace validation.
 
 ## Следующее действие
 
-Перед следующим отдельным этапом повторно проверить `electro-tutor`; если Git-root остаётся clean, выполнить inspect → gap analysis → minimal delta.
+Нет обязательного product-specific действия. Следующие изменения ДЕВ начинаются
+только при появлении новой общей инженерной потребности.

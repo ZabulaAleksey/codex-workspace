@@ -9,6 +9,8 @@
 
 ## 2026-08-13 — Один Markdown-каталог rollout
 
+**Статус:** superseded 2026-08-20.
+
 - Решение: использовать только `docs/PROJECT_CATALOG.md`.
 - Причина: человеку нужен один источник lifecycle, blockers и следующего действия.
 - Альтернатива: дополнительный JSON/YAML registry; отклонена как второй источник истины.
@@ -26,3 +28,30 @@
 - Проекты наследуют общий контракт и при необходимости создают только `docs/FALLBACKS.md` с предметной delta.
 - `SECURITY.md` остаётся владельцем security invariants, `DECISIONS.md` — причин решений, `ARCHITECTURE.md` — границ и recovery interfaces.
 - Silent fallback и fallback, ослабляющий security или evidence, запрещены.
+
+## 2026-08-20 — ДЕВ не владеет live-статусом product repositories
+
+**Статус:** принято.
+
+**Решение:** AI Dev Team хранит общие инженерные правила, policies, validators,
+project framework и reusable automation, но не хранит канонический live inventory
+этапов, blockers или очереди отдельных product repositories.
+
+Состояние конкретного продукта принадлежит его собственным `AI_STATUS`,
+`AI_PLAN`, `ROADMAP` и другим project-specific источникам.
+
+`validate_project_overlay.py` остаётся универсальным read-only инструментом,
+который запускается для явно выбранного repository, но ДЕВ не обязан хранить
+глобальную очередь таких repositories.
+
+**Причина:** жизненный цикл общей инженерной инфраструктуры не должен зависеть
+от состояния её потребителей.
+
+**Последствия:**
+
+- `docs/PROJECT_CATALOG.md` удаляется;
+- blockers конкретных продуктов не входят в `docs/AI_STATUS.md` ДЕВ;
+- product repository не становится следующим этапом ДЕВ;
+- исторический pilot/forward-test может оставаться evidence в истории решений,
+  если он действительно происходил;
+- общие project-overlay rules и validator сохраняются.

@@ -18,7 +18,10 @@ read-only validator
 
 `tools/validate_project_overlay.py` принимает ровно один target repository. Он проверяет независимый Git-root, канонические документы, альтернативные status-файлы, точные копии глобальной automation и compatibility audit. Инструмент не пишет в target и не меняет Git-конфигурацию: `safe.directory` передаётся только конкретному процессу Git через `-c`.
 
-`tools/validate_context.py` отдельно проверяет manifest самого workspace. Канонический rollout-реестр — `docs/PROJECT_CATALOG.md`.
+`tools/validate_context.py` отдельно проверяет manifest самого workspace.
+`tools/validate_project_overlay.py` запускается для одного явно выбранного repository;
+workspace не хранит live inventory product repositories. Текущие этапы, blockers
+и другие сведения о состоянии продукта принадлежат самому product repository.
 
 ## Потоки и интерфейсы
 

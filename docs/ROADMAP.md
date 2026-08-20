@@ -2,24 +2,21 @@
 
 ## Выполнено
 
-- базовая AI Dev Team, SDD и context routing;
-- каноническое определение project framework;
-- feature-SPEC rollout и workspace validator.
+- базовая AI Dev Team;
+- SDD и context routing;
+- project framework;
+- read-only project-overlay validator;
+- canonical Fallback Policy;
+- canonical Node package-management policy;
+- отделение состояния ДЕВ от live-состояния product repositories.
 
-## Выполнено: этап 1 rollout
+## Дальнейшие направления
 
-- безопасно активирован пользовательский router и Skill;
-- `off-screen-canvas` подключён без изменения продукта;
-- подтверждены validator, отсутствие runtime diff и компактный forward-test.
+- развитие model/tool routing;
+- Prompt Compiler и policy validation;
+- tracing/evals;
+- дополнительные reusable security/testing policies;
+- улучшение validators;
+- новые общие Skills/agents только при подтверждённой повторяемой потребности.
 
-## Текущий следующий этап
-
-- повторно проверить состояние `electro-tutor`;
-- при clean Git-root выполнить отдельный inspect → gap analysis → minimal delta rollout;
-- обновить каталог только по фактическим результатам.
-
-## Позднее
-
-- последовательно обрабатывать остальные incomplete repositories;
-- отдельно решить `dune-rts`, dirty worktrees и stale compatibility audits;
-- не выполнять массовое копирование общей automation.
+Product-specific rollout не является этапом этого roadmap.
