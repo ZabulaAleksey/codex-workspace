@@ -101,6 +101,16 @@ nearest instructions
 
 Отсутствие локального config, hook, MCP, Skill или subagent является нормальным результатом bootstrap.
 
+Общая Fallback Policy наследуется из
+`~/codex-workspace/rules/fallback-policy.md`.
+
+Если проект имеет собственные предметные цепочки деградации,
+он хранит только project-specific delta в `docs/FALLBACKS.md`.
+
+`AGENTS.md`, `SECURITY.md`, `ARCHITECTURE.md`, `DECISIONS.md` и SPEC
+не должны становиться конкурирующими полными источниками fallback-правил:
+они содержат только свои инварианты, решения и ссылки на канонический каталог.
+
 ## Язык проектного контекста
 
 По умолчанию человекочитаемый проектный контекст создаётся и поддерживается на русском языке. Это относится к `AGENTS.md`, SPEC, архитектуре, решениям, безопасности, тестовой стратегии, `AI_PLAN`, `AI_STATUS`, roadmap, stage prompts и инструкциям проектных agents/Skills.
