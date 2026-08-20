@@ -70,3 +70,29 @@ Spark предпочтителен для:
 ## Цель
 
 Максимально использовать отдельный ресурс и высокую скорость Codex-Spark для повседневной разработки, сохраняя основной Codex для задач, где его дополнительное reasoning и long-horizon agentic выполнение действительно дают преимущество.
+
+## Fallback модели
+
+Выбор альтернативной модели подчиняется `rules/fallback-policy.md`.
+
+Цепочка:
+
+preferred model
+→ approved alternate model
+→ ограниченная/local model
+→ fail closed
+
+Переход разрешён только после capability check.
+
+Если альтернативная модель не способна обеспечить требуемую:
+- точность;
+- reasoning depth;
+- context capacity;
+- security requirement;
+- tool capability,
+
+она не должна создавать уверенный результат вместо primary.
+
+Снижение capability обозначается явно.
+
+Fallback модели не отменяет quality gates, review и tests.

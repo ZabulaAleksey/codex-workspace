@@ -18,3 +18,11 @@
 - Решение: validator принимает путь одного repository, ничего не исправляет и поддерживает human/JSON output.
 - Причина: проверка должна быть повторяемой и безопасной для независимых рабочих копий.
 - Последствие: неполный или спорный repository получает issue; изменение выполняется отдельным этапом.
+
+## 2026-08-20 — Один канонический контракт Fallback Policy
+
+- Решение: общий контракт retry/fallback/degraded/fail-closed хранится только в `rules/fallback-policy.md`.
+- Причина: fallback-правила не должны расходиться между agents, Skills, security docs и проектами.
+- Проекты наследуют общий контракт и при необходимости создают только `docs/FALLBACKS.md` с предметной delta.
+- `SECURITY.md` остаётся владельцем security invariants, `DECISIONS.md` — причин решений, `ARCHITECTURE.md` — границ и recovery interfaces.
+- Silent fallback и fallback, ослабляющий security или evidence, запрещены.

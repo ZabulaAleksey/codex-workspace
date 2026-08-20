@@ -1,60 +1,47 @@
 # Текущий план AI Dev Team
 
-Статус: Завершён
-Этап: Project overlay rollout, этап 1
-Дата: 2026-08-13
+Статус: В работе
+Этап: Canonical fallback policy + Node package management
+Дата: 2026-08-20
 
 ## Цель
 
-Активировать глобальный КАРКАС Codex, добавить воспроизводимую read-only проверку project overlay и подключить `projects/off-screen-canvas` как первый пилот без изменения продукта.
+Усилить самостоятельный канонический слой инженерных правил AI Dev Team:
 
-## Требования
+1. создать единый `rules/fallback-policy.md`;
+2. подключить его через context routing без глобального автозагружания;
+3. закрепить inheritance/project-delta contract для fallback rules;
+4. заполнить `rules/node-package-management.md`;
+5. синхронизировать architecture, decisions и compatibility документацию ДЕВ;
+6. обеспечить возможность независимого наследования этих правил любым project overlay.
 
-`FR-101`–`FR-106`, `NFR-101`–`NFR-104`, `AC-101`–`AC-107` из `specs/features/project-overlay-rollout.spec.md`.
+## Область
 
-## Область файлов
+Изменения относятся только к repository AI Dev Team.
 
-### Workspace AI Dev Team
+Product repositories не являются частью этого этапа
+и не определяют его завершённость.
 
-- `specs/` и обязательные `docs/AI_*.md`, architecture/decisions/design/security;
-- `docs/PROJECT_CATALOG.md`, `docs/CONTEXT_COMPATIBILITY.md`, `docs/LEARNING_LOG.md`;
-- read-only validator и его тесты в `tools/`;
-- `MANIFEST.txt`, README/verification docs только при изменении фактов.
+## Definition of Done
 
-### Пилот
+- `rules/fallback-policy.md` является единственным глобальным
+  источником retry/fallback/degraded/fail-closed contract;
+- `rules/README.md` корректно маршрутизирует эту policy;
+- корневой `AGENTS.md` содержит только компактный router;
+- `docs/PROJECT_FRAMEWORK.md` определяет правило project-specific delta;
+- `docs/CONTEXT_COMPATIBILITY.md` фиксирует inheritance;
+- `docs/ARCHITECTURE.md` отражает policy layer;
+- `docs/DECISIONS.md` фиксирует решение об одном каноническом источнике;
+- `rules/node-package-management.md` содержит канонические
+  Node/Corepack/npm/pnpm/Yarn правила для Windows и других сред;
+- Node/package-manager fallback подчиняется общей Fallback Policy;
+- validators и относящиеся тесты проходят;
+- никакой product repository не требуется для признания этапа завершённым.
 
-- `projects/off-screen-canvas/AGENTS.md` только при подтверждённом пробеле;
-- `projects/off-screen-canvas/specs/`;
-- `projects/off-screen-canvas/docs/`.
+## Остановка / fail closed
 
-Runtime-файлы продукта запрещены.
+Если новое общее правило требует знания,
+специфичного только для одного продукта,
+оно не добавляется в ДЕВ как глобальная policy.
 
-## Последовательность
-
-1. Зафиксировать архитектуру, решения, состояние и rollout-реестр workspace.
-2. Реализовать project-overlay validator и автоматические тесты.
-3. Проверить эталон `text-recognition-core` и пилот до изменений.
-4. Без force-перезаписи синхронизировать глобальный router и установить пользовательский Skill.
-5. Создать отдельную feature-ветку пилота и добавить минимальную project delta.
-6. Запустить unit tests, workspace validation, project validation и context forward-test.
-7. Провести reviewer, исправить блокирующие замечания, обновить статусы и сделать отдельные commits.
-
-## Quality gates
-
-- все критерии `AC-101`–`AC-107` имеют доказательство;
-- глобальная установка не удаляет и не перезаписывает несвязанный пользовательский контент;
-- повторный validator не меняет проверяемый repository;
-- workspace и pilot имеют чистый Git status после коммита;
-- следующий rollout-кандидат указан однозначно.
-
-## Откат и остановка
-
-- Workspace и pilot откатываются независимо через revert своих commits.
-- При dirty worktree, неизвестном происхождении локальной automation или необходимости менять runtime-код rollout останавливается до отдельного решения.
-
-## Результат
-
-- пользовательские router и `bootstrap-project-framework` синхронизированы с каноническими файлами по SHA-256;
-- read-only validator и автоматические тесты реализованы;
-- `off-screen-canvas` проходит validation и SessionStart forward-test без runtime-изменений;
-- единственный следующий rollout-кандидат — `electro-tutor`.
+Такое правило должно оставаться project-specific delta.
