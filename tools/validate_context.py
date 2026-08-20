@@ -32,9 +32,13 @@ REQUIRED = {
     "rules/node-package-management.md",
     "templates/SPEC_TEMPLATE.md",
     "specs/README.md",
+    "specs/features/global-codex-normalization.spec.md",
     "specs/system.spec.md",
+    "tools/normalize_user_codex.py",
+    "tools/test_validate_global_codex.py",
     "specs/features/project-overlay-rollout.spec.md",
     "tools/validate_context.py",
+    "tools/validate_global_codex.py",
     "tools/validate_project_overlay.py",
     "tools/test_validate_project_overlay.py",
 }

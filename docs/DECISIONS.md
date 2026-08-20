@@ -55,3 +55,18 @@ project framework и reusable automation, но не хранит канонич�
 - исторический pilot/forward-test может оставаться evidence в истории решений,
   если он действительно происходил;
 - общие project-overlay rules и validator сохраняются.
+
+## 2026-08-20 — Канон и runtime глобальной конфигурации разделены
+
+**Решение:** `global/codex` остаётся единственным versioned source-of-truth для managed AGENTS, agents, hooks и rules. `~/.codex/config.toml` остаётся runtime-specific и меняется только ограниченным идемпотентным normalizer; installer не перезаписывает его целиком.
+
+**Причина:** слепая синхронизация теряла полезные local deltas, а полное сохранение installed-файлов закрепляло drift, Unicode defect и небезопасные настройки.
+
+**Последствия:**
+
+- reviewed model pins и routing сначала попадают в канон;
+- `-SyncManaged` является явным режимом синхронизации;
+- plugin имеет приоритет над дублирующим static MCP;
+- inline secrets и broad trust являются validation errors;
+- host-managed browser paths/hashes не угадываются;
+- внешняя ротация credential и интерактивный trust hooks не автоматизируются.

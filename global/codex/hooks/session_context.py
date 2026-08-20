@@ -20,21 +20,36 @@ def find_repo_root(start: Path) -> Path:
     return p
 
 
+def is_within_repo(root: Path, candidate: Path) -> bool:
+    try:
+        candidate.relative_to(root)
+    except ValueError:
+        return False
+    return True
+
+
+def read_bounded_text(path: Path, limit: int) -> str:
+    with path.open("r", encoding="utf-8", errors="replace") as handle:
+        return handle.read(limit)
+
+
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     payload = json.load(sys.stdin)
     cwd = Path(payload.get("cwd") or ".").expanduser()
-    root = find_repo_root(cwd)
+    root = find_repo_root(cwd).resolve()
     chunks = []
     remaining = MAX_CHARS
     for rel in FILES:
-        path = root / rel
-        if not path.exists() or not path.is_file():
+        try:
+            path = (root / rel).resolve(strict=True)
+        except OSError:
             continue
-        text = path.read_text(encoding="utf-8", errors="replace")
+        if not is_within_repo(root, path) or not path.is_file():
+            continue
         # Сохраняем статус первым и ограничиваем каждый файл, чтобы не переполнять контекст.
-        part = text[: min(len(text), remaining, 3500)]
+        part = read_bounded_text(path, min(remaining, 3500))
         if part.strip():
             chunks.append(f"## {rel}\n{part}")
             remaining -= len(part)

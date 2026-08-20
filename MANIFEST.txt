@@ -221,11 +221,15 @@ rules/stacks/web-audio.md
 rules/stacks/yjs.md
 rules/word-pdf-academic.md
 specs/README.md
+specs/features/global-codex-normalization.spec.md
 specs/features/project-overlay-rollout.spec.md
 specs/system.spec.md
 templates/DEV_LOG_TEMPLATE.md
 templates/LEARNING_LOG_TEMPLATE.md
 templates/SPEC_TEMPLATE.md
 tools/validate_context.py
+tools/normalize_user_codex.py
+tools/test_validate_global_codex.py
 tools/test_validate_project_overlay.py
+tools/validate_global_codex.py
 tools/validate_project_overlay.py

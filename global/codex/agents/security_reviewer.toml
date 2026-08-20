@@ -1,6 +1,7 @@
 name = "security_reviewer"
 description = "Read-only проверка безопасности секретов, авторизации, разрешений, сетевой доступности и недоверенного ввода."
 sandbox_mode = "read-only"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 
 developer_instructions = """

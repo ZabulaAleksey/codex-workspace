@@ -66,3 +66,18 @@ Live inventory product repositories больше не является capabilit
 project-specific delta.
 
 Пользовательский `~/.codex/AGENTS.md` и `~/.agents/skills/bootstrap-project-framework` синхронизированы с их каноническими workspace-источниками. Это статус `INHERITED` для всех проектов: Skill и router не копируются в каждый repository.
+
+## Решение 2026-08-20 — нормализация глобального runtime-слоя
+
+| Возможность | Найденное состояние | Статус | Решение и канонический источник |
+|---|---|---|---|
+| Global AGENTS / agents / hooks / rules | 18 installed-файлов разошлись с `global/codex` | `CONFLICT` → `INHERITED` | полезная model routing delta перенесена в канон; installed hashes синхронизированы |
+| Session context hook | installed-версия падала на cp1251; canonical читал полный файл и следовал внешним symlink | `CONFLICT` → `EXTEND` | UTF-8 output, repository containment и bounded read в `global/codex/hooks/session_context.py` |
+| Context7 | credential в process args, unpinned package | `CONFLICT` → `INHERITED` | no-key запуск, reviewed pin `4.0.2`; ротация старого credential остаётся внешним действием |
+| GitHub | plugin и authenticated static MCP работали параллельно | `CONFLICT` | plugin — primary, static MCP — disabled fallback; permission mode требует выбора владельца |
+| Atlassian | standalone MCP задан, но runtime route не подтверждён | `CONFLICT` | definition сохранён с `enabled = false` |
+| Google Calendar / Slack | config помечал enabled, Plugin Management подтвердил отсутствие установки | `OBSOLETE` | inert blocks сохранены выключенными, cache вручную не удаляется |
+| Browser trusted service | ссылка на отсутствующий `browser-service.mjs` и один неподтверждённый client hash | `CONFLICT` | broken browser mapping и unmatched hash удалены; `sky` не изменён; host repair проверяется после restart |
+| Project trust | broad home, три неверных имени и три non-project roots | `CONFLICT` | broad/non-project trust удалён, имена заменены на существующие Git roots |
+| Shell environment | spawned commands наследовали `*_TOKEN` | `CONFLICT` | `ignore_default_excludes = false`; проверка фактического нового shell после restart |
+| Recommendation files | устаревший AGENTS staging и актуальный config proposal | `OBSOLETE` / `EXTEND` | obsolete AGENTS staging удалён после hash-check; config recommendation сохранён как неактивный proposal |

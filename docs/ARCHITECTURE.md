@@ -30,6 +30,20 @@ workspace не хранит live inventory product repositories. Текущие 
 - Выход: код `0` при полном соответствии, `1` со стабильным отсортированным списком issues при нарушении.
 - Внешняя зависимость: только executable `git`; остальная реализация использует Python standard library.
 
+## Контур глобальной установки Codex
+
+```text
+global/codex (канон в Git)
+        ↓ reviewed sync
+~/.codex (активный runtime-слой)
+        ↓ read-only validation
+hashes managed-файлов + безопасные инварианты config.toml
+```
+
+`install-global.ps1 -SyncManaged` синхронизирует только reviewed managed-файлы и не перезаписывает активный `config.toml`. `tools/normalize_user_codex.py` выполняет ограниченную, идемпотентную и предварительно валидируемую нормализацию пользовательского TOML без вывода секретов. `tools/validate_global_codex.py` независимо проверяет hashes установленного слоя и статические границы безопасности.
+
+Host-managed runtime bindings не подменяются угаданными путями: отсутствующая browser service удаляется, `sky` binding сохраняется, а browser client hash допускается только при совпадении с фактически установленным client-файлом.
+
 ## Policy layer
 
 Сквозные инженерные policies находятся в `rules/`.

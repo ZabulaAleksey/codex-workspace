@@ -11,6 +11,10 @@ Codex загружает все подходящие hooks из активных
 - глобальный `PreToolUse` блокирует небольшой набор необратимых команд;
 - специфичная для проекта политика хранится в `AGENTS.md`, `AGENTS.override.md` и `.codex/rules/project.rules`.
 
+`^Bash$` является каноническим matcher Codex и покрывает shell commands и unified exec независимо от Windows command override. Hook остаётся дополнительным guardrail; sandbox, approvals и execpolicy являются основными границами.
+
+`session_context.py` разрешает каждый фиксированный документ относительно Git-root, отклоняет symlink/junction за пределы repository и читает только ограниченный префикс файла. Вывод принудительно переводится в UTF-8, чтобы Windows legacy console encoding не ломала JSON.
+
 ## Когда добавлять локальный hook
 
 Добавляй `<repo>/.codex/hooks.json` только тогда, когда нужна детерминированная автоматизация, специфичная для одного проекта, например:

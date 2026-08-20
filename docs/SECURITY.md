@@ -19,3 +19,22 @@ Project-overlay validator читает путь локального repository,
 - состояние repository может измениться другим процессом между отдельными filesystem/Git проверками.
 
 Эти риски приемлемы для локального read-only аудита; любые автоматические исправления остаются вне области этапа.
+
+## Глобальный пользовательский слой Codex
+
+Активный `~/.codex/config.toml` нормализуется без печати значений секретов:
+
+- Context7 запускается без inline credential;
+- `ignore_default_excludes = false` удаляет переменные вида `KEY`, `SECRET` и `TOKEN` из окружения spawned shell;
+- static GitHub и неподтверждённый Atlassian MCP выключены;
+- широкое доверие домашнему каталогу и несуществующие project paths запрещены;
+- отсутствующая browser service и неподтверждённый browser client hash не считаются доверенными.
+
+Hook контекста использует repository containment и bounded read. Destructive guard покрывает `git.exe`, `git -C`, варианты порядка PowerShell flags и `rm -fr /`, но остаётся дополнительным слоем поверх sandbox/approvals/execpolicy.
+
+## Остаточные действия владельца
+
+- отозвать или ротировать ранее использованный Context7 credential у провайдера;
+- выбрать для GitHub plugin режим `inherit` или `ask_before_writes` вместо текущего app-specific allow-all;
+- после restart проверить, что новый shell не видит secret-like variables, а `/hooks` доверяет новым hashes;
+- восстановить Browser plugin штатным lifecycle, если host не создаст корректный service binding.

@@ -20,12 +20,18 @@ Windows:
 ```toml
 [mcp_servers.context7]
 command = "cmd"
-args = ["/c", "npx", "-y", "@upstash/context7-mcp"]
+args = ["/c", "npx", "-y", "@upstash/context7-mcp@4.0.2"]
 ```
 
-### GitHub
+Версия фиксируется после локальной проверки и обновляется отдельным reviewed изменением. Inline API key в `args` запрещён; базовый сервер работает без него.
+
+### GitHub plugin — основной маршрут
 
 Назначение: задачи, PR, Actions и метаданные репозитория сверх возможностей обычных `git` и `gh`.
+
+Подключённый GitHub plugin является каноническим маршрутом. Его write permissions настраиваются штатным менеджером плагинов. Одновременная активация plugin и static MCP запрещена.
+
+### GitHub static MCP — выключенный fallback
 
 ```toml
 [mcp_servers.github]
@@ -35,7 +41,11 @@ default_tools_approval_mode = "prompt"
 enabled = false
 ```
 
-Включать после задания `GITHUB_PERSONAL_ACCESS_TOKEN`. Не предоставлять инструменты с правом записи агентам, которым они не нужны.
+Включать только после явного выбора static MCP вместо plugin и задания `GITHUB_PERSONAL_ACCESS_TOKEN`. Не предоставлять инструменты с правом записи агентам, которым они не нужны.
+
+### Atlassian
+
+Standalone remote MCP хранится выключенным до подтверждённого назначения, authentication и smoke-test. При появлении Atlassian plugin выбирается один маршрут, а не две параллельные write-поверхности.
 
 ## Браузерные MCP
 
@@ -56,9 +66,11 @@ args = ["/c", "npx", "-y", "@playwright/mcp@latest"]
 ```toml
 [mcp_servers.chrome-devtools]
 command = "cmd"
-args = ["/c", "npx", "-y", "chrome-devtools-mcp@latest"]
+args = ["/c", "npx", "-y", "chrome-devtools-mcp@1.7.0"]
 startup_timeout_ms = 20000
 ```
+
+В активной Windows-конфигурации используется локально проверенная точная версия `chrome-devtools-mcp@1.7.0`; `@latest` в production-like пользовательском слое не используется.
 
 ## Развёртывание и production — подключать только по необходимости
 

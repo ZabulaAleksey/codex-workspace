@@ -20,7 +20,7 @@ url = "https://developers.openai.com/mcp"
 # Общая документация библиотек и фреймворков.
 [mcp_servers.context7]
 command = "cmd"
-args = ["/c", "npx", "-y", "@upstash/context7-mcp"]
+args = ["/c", "npx", "-y", "@upstash/context7-mcp@4.0.2"]
 
 # Включать после задания GITHUB_PERSONAL_ACCESS_TOKEN.
 [mcp_servers.github]

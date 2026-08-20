@@ -245,3 +245,25 @@ codex.cmd execpolicy check --pretty --rules global/codex/rules/ai-dev-team.rules
 Дополнительно проверяются JSON/TOML, компиляция hook-скриптов и фактический вывод `SessionStart` на русском языке.
 4. Убедиться, что generic agents/hooks/MCP/config не скопированы локально.
 5. Проверить stage prompts и остановиться до реализации, если код не запрошен.
+
+## 2026-08-20 — Нормализация глобального слоя Codex
+
+### Задача
+
+Устранить drift между `global/codex` и `~/.codex`, исправить Windows hook и закрыть конфликтные MCP/plugin/trust связи без слепого перезаписывания пользовательского config.
+
+### Что изменили
+
+Полезные model routing и pins перенесены в канон, managed-файлы синхронизированы явным `-SyncManaged`, а active TOML обработан отдельным идемпотентным normalizer. Context hook ограничивает путь и объём чтения; секреты не печатаются и не передаются spawned shell по умолчанию.
+
+### Как повторить вручную
+
+1. Запустить `py -3 tools/validate_global_codex.py`.
+2. Проверить план normalizer без записи: `py -3 tools/normalize_user_codex.py`.
+3. После review выполнить `install-global.ps1 -SyncManaged` и normalizer с `--apply`.
+4. Повторить validator и unit-тесты.
+5. Перезапустить Codex, открыть `/hooks` и выполнить smoke-test интеграций.
+
+### Важный вывод
+
+Cache, config definition и реально surfaced runtime capability — разные состояния. Отсутствие tool в одном сеансе не является основанием угадывать service path или удалять plugin cache; безопаснее отключить неоднозначный маршрут и подтвердить его после restart.
