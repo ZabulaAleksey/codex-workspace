@@ -109,13 +109,15 @@ def normalize_text(
 
     for header, body in sections:
         parsed_project = re.fullmatch(r"projects\.'(.+)'", header)
-        project_path = Path(parsed_project.group(1)).resolve() if parsed_project else None
+        project_path = Path(parsed_project.group(
+            1)).resolve() if parsed_project else None
         if project_path and str(project_path).casefold() == broad_home:
             changes.append("remove-broad-home-trust")
             continue
         if project_path:
             try:
-                relative = project_path.relative_to(user_home.resolve()).as_posix().casefold()
+                relative = project_path.relative_to(
+                    user_home.resolve()).as_posix().casefold()
             except ValueError:
                 relative = ""
             if relative in NONPROJECT_TRUST_RELATIVE:
@@ -123,12 +125,14 @@ def normalize_text(
                 continue
 
         if project_path and project_path.parent.name.casefold() == "projects" and project_path.name in PROJECT_DIR_RENAMES:
-            project_path = project_path.with_name(PROJECT_DIR_RENAMES[project_path.name])
+            project_path = project_path.with_name(
+                PROJECT_DIR_RENAMES[project_path.name])
             header = f"projects.'{project_path}'"
             changes.append("rename-stale-project-path")
 
         if header == "mcp_servers.node_repl.env":
-            services_raw = original.get("mcp_servers", {}).get("node_repl", {}).get("env", {}).get("NODE_REPL_TRUSTED_SERVICES")
+            services_raw = original.get("mcp_servers", {}).get(
+                "node_repl", {}).get("env", {}).get("NODE_REPL_TRUSTED_SERVICES")
             services: dict[str, object] | None = None
             if isinstance(services_raw, str):
                 decoded = json.loads(services_raw)
@@ -143,8 +147,10 @@ def normalize_text(
                         services.pop("browser")
                         changes.append("remove-missing-browser-service")
                     if services:
-                        encoded = json.dumps(json.dumps(services, separators=(",", ":")))
-                        updated.append(f"NODE_REPL_TRUSTED_SERVICES = {encoded}{newline}")
+                        encoded = json.dumps(json.dumps(
+                            services, separators=(",", ":")))
+                        updated.append(
+                            f"NODE_REPL_TRUSTED_SERVICES = {encoded}{newline}")
                 else:
                     updated.append(line)
             body = updated
@@ -154,7 +160,8 @@ def normalize_text(
             for line in body:
                 if re.match(r"^\s*args\s*=", line):
                     indent = line[: len(line) - len(line.lstrip())]
-                    updated.append(f'{indent}args = ["-y", "{CONTEXT7_PACKAGE}"]{newline}')
+                    updated.append(
+                        f'{indent}args = ["-y", "{CONTEXT7_PACKAGE}"]{newline}')
                     replaced = True
                     if "--api-key" in line:
                         changes.append("remove-context7-inline-key")
@@ -196,13 +203,17 @@ def normalize_text(
             updated = []
             for line in body:
                 if re.match(r"^\s*NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S\s*=", line):
-                    configured = original.get("shell_environment_policy", {}).get("set", {}).get("NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S", "")
-                    hashes = [item.strip() for item in configured.split(",") if item.strip()] if isinstance(configured, str) else []
-                    retained = [item for item in hashes if item in valid_browser_hashes]
+                    configured = original.get("shell_environment_policy", {}).get(
+                        "set", {}).get("NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S", "")
+                    hashes = [item.strip() for item in configured.split(
+                        ",") if item.strip()] if isinstance(configured, str) else []
+                    retained = [
+                        item for item in hashes if item in valid_browser_hashes]
                     if retained != hashes:
                         changes.append("remove-unmatched-browser-client-hash")
                     if retained:
-                        updated.append(f"NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = {json.dumps(','.join(retained))}{newline}")
+                        updated.append(
+                            f"NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = {json.dumps(','.join(retained))}{newline}")
                 else:
                     updated.append(line)
             body = updated
@@ -216,18 +227,24 @@ def normalize_text(
 
     normalized = "".join(output)
     parsed = tomllib.loads(normalized)
-    context7_args = parsed.get("mcp_servers", {}).get("context7", {}).get("args", [])
+    context7_args = parsed.get("mcp_servers", {}).get(
+        "context7", {}).get("args", [])
     if any(isinstance(arg, str) and "api-key" in arg.casefold() for arg in context7_args):
-        raise ValueError("Context7 inline credential marker remains after normalization")
-    node_env = parsed.get("mcp_servers", {}).get("node_repl", {}).get("env", {})
+        raise ValueError(
+            "Context7 inline credential marker remains after normalization")
+    node_env = parsed.get("mcp_servers", {}).get(
+        "node_repl", {}).get("env", {})
     normalized_services_raw = node_env.get("NODE_REPL_TRUSTED_SERVICES")
     if isinstance(normalized_services_raw, str):
         normalized_services = json.loads(normalized_services_raw)
-        browser_service = normalized_services.get("browser") if isinstance(normalized_services, dict) else None
+        browser_service = normalized_services.get(
+            "browser") if isinstance(normalized_services, dict) else None
         if isinstance(browser_service, str) and "://" not in browser_service and not Path(browser_service).expanduser().exists():
-            raise ValueError("missing browser service remains after normalization")
+            raise ValueError(
+                "missing browser service remains after normalization")
     if parsed.get("shell_environment_policy", {}).get("ignore_default_excludes") is not False:
-        raise ValueError("secret-like shell environment variables are not excluded")
+        raise ValueError(
+            "secret-like shell environment variables are not excluded")
     for name in ("github", "atlassian"):
         if name in parsed.get("mcp_servers", {}) and parsed["mcp_servers"][name].get("enabled", True):
             raise ValueError(f"{name} MCP remains enabled after normalization")
@@ -247,7 +264,8 @@ def normalize_text(
 
 
 def write_atomic(path: Path, content: str, expected_digest: str) -> None:
-    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
     temporary = Path(temporary_name)
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="") as handle:
@@ -256,16 +274,20 @@ def write_atomic(path: Path, content: str, expected_digest: str) -> None:
             os.fsync(handle.fileno())
         current_digest = hashlib.sha256(path.read_bytes()).hexdigest()
         if current_digest != expected_digest:
-            raise ConcurrentConfigUpdateError("active config changed during normalization")
+            raise ConcurrentConfigUpdateError(
+                "active config changed during normalization")
         os.replace(temporary, path)
     finally:
         temporary.unlink(missing_ok=True)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Safely normalize the active user Codex config without printing secrets.")
-    parser.add_argument("--config", type=Path, default=Path.home() / ".codex" / "config.toml")
-    parser.add_argument("--apply", action="store_true", help="Write the validated normalized config atomically.")
+    parser = argparse.ArgumentParser(
+        description="Safely normalize the active user Codex config without printing secrets.")
+    parser.add_argument("--config", type=Path,
+                        default=Path.home() / ".codex" / "config.toml")
+    parser.add_argument("--apply", action="store_true",
+                        help="Write the validated normalized config atomically.")
     args = parser.parse_args()
     path = args.config.expanduser().resolve()
     try:
@@ -286,7 +308,8 @@ def main() -> int:
         print("user Codex config requires normalization: " + ", ".join(changes))
         return 1
     try:
-        write_atomic(path, normalized, hashlib.sha256(original_bytes).hexdigest())
+        write_atomic(path, normalized, hashlib.sha256(
+            original_bytes).hexdigest())
     except (OSError, ConcurrentConfigUpdateError) as exc:
         print(f"ERROR: normalization refused: {exc}", file=sys.stderr)
         return 2
